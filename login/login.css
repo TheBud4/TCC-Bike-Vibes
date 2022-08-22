@@ -1,0 +1,113 @@
+/* --Variaveis-- */
+:root{
+  --roxo:#7F5AF0;
+  --verde:#2CB67D;
+  --botaoazul:rgb(42, 141, 255);
+  --branco:white;
+}
+/* --BODY-- */
+body{
+  display: flex;
+  flex-direction: column;
+}
+
+/* --Logo-- */
+.logo{
+display: flex; 
+flex-direction: column;
+align-items: center;
+}
+.logo img{
+  width: 12.5rem;
+  height: 12.5rem;
+}
+.logo span{
+  font:25px 'Bebas Neue', cursive;
+  color: var(--roxo);
+}
+.logo span span{
+  color: var(--verde);
+}
+/* --imagem de bem vindo-- */
+.welcome{
+  display: flex;
+  flex-direction: column;
+  max-width: 31.25rem;
+  margin-top: 5rem;
+  margin-left: 15rem;
+}
+.welcome img{
+  width: 31.25rem;
+  height: 31.25rem;
+}
+.welcome span{
+  font:25px 'Bebas Neue', cursive;
+  color: var(--verde);
+  align-self: center;
+  margin-bottom: 1rem;
+}
+/* --formulario de login-- */
+.container{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--branco);
+  width: 30rem;
+  height: 30rem;
+  border-radius: 1.5rem;
+  box-shadow: 1px -2px 15px 2px rgba(0,0,0,0.37);
+  border: 4px solid rgba(0, 0, 0, 0.133);
+  top: 21rem;
+  left: 65rem;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  max-width: 21rem;
+  align-self: center;
+}
+form input{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  align-self: center;
+}
+form label{
+align-self: flex-start;
+}
+form .button{
+  margin-top: 1rem;
+  width: 10rem;
+  height: 2rem;
+  align-self: center;
+  background:var(--botaoazul);
+  border-radius: 0.2rem;
+  color: var(--branco);
+  transition: all 0.3s ease;
+  border: none;
+}
+.container h1{
+  align-self: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  font:2rem 'Oswald', sans-serif;
+}
+.button:hover{
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+form label{
+  font:1rem 'Roboto', sans-serif;
+}
+.entrada{
+background: none;
+border-radius: 0.2rem;
+font: 500 1rem 'Roboto', sans-serif;
+block-size: 1.5rem;
+width: 20rem;
+border: 1px solid;
+animation: none;
+}
+span{
+  font:0.9rem 'Roboto', sans-serif;
+  align-self: center;
+}
