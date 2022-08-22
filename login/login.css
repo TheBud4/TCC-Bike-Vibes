@@ -22,11 +22,15 @@ align-items: center;
   height: 12.5rem;
 }
 .logo span{
-  font:25px 'Bebas Neue', cursive;
+  font:30px 'Dancing Script', cursive;
   color: var(--roxo);
 }
 .logo span span{
   color: var(--verde);
+}
+.slogan{
+  position: absolute;
+  margin-top: 10rem;
 }
 /* --imagem de bem vindo-- */
 .welcome{
@@ -56,7 +60,7 @@ align-items: center;
   height: 30rem;
   border-radius: 1.5rem;
   box-shadow: 1px -2px 15px 2px rgba(0,0,0,0.37);
-  border: 4px solid rgba(0, 0, 0, 0.133);
+  border: 2px solid rgba(0, 0, 0, 0.133);
   top: 21rem;
   left: 65rem;
 }
