@@ -1,9 +1,10 @@
 /* --Variaveis-- */
 :root{
-  --roxo:#7F5AF0;
-  --verde:#2CB67D;
-  --botaoazul:rgb(42, 141, 255);
-  --branco:white;
+  --cor1:#7F5AF0;
+  --cor2:#2CB67D;
+  --cor3:rgb(42, 141, 255);
+  --fundo:white;
+  --textcolor:white;
 }
 /* --BODY-- */
 body{
@@ -23,10 +24,10 @@ align-items: center;
 }
 .logo span{
   font:30px 'Dancing Script', cursive;
-  color: var(--roxo);
+  color: var(--cor1);
 }
 .logo span span{
-  color: var(--verde);
+  color: var(--cor2);
 }
 .slogan{
   position: absolute;
@@ -46,7 +47,7 @@ align-items: center;
 }
 .welcome span{
   font:25px 'Bebas Neue', cursive;
-  color: var(--verde);
+  color: var(--cor2);
   align-self: center;
   margin-bottom: 1rem;
 }
@@ -55,7 +56,7 @@ align-items: center;
   display: flex;
   flex-direction: column;
   position: absolute;
-  background-color: var(--branco);
+  background-color: var(--fundo);
   width: 30rem;
   height: 30rem;
   border-radius: 1.5rem;
@@ -83,9 +84,9 @@ form .button{
   width: 10rem;
   height: 2rem;
   align-self: center;
-  background:var(--botaoazul);
+  background:var(--cor3);
   border-radius: 0.2rem;
-  color: var(--branco);
+  color: var(--fundo);
   transition: all 0.3s ease;
   border: none;
 }
