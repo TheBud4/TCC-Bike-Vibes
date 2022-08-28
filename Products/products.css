@@ -67,6 +67,7 @@ body{
   height: 3.2rem;
   width: 3.2rem;
   border: none;
+  cursor: pointer;
 }
 .navbar .perfil{
   border-radius: 100%;
