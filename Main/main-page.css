@@ -34,7 +34,6 @@ body{
   height: 100%;
   display: flex;
   margin-right: 50%;
-  margin-top: -.5%;
 }
 .logo img{
   width: 7rem;
@@ -54,6 +53,7 @@ body{
   color: var(--textcolor);
   display: flex;
 }
+/* --NAVBAR-- */
 .navbar a{
   text-decoration: none;
   color: var(--fundo);
@@ -93,29 +93,67 @@ body{
 display: none;
 }
 .perfil-navbar-opened{
-  margin-top: 45%;
-  width: 15rem;
-  height: 15rem;
+  margin-right: 1%;
+  margin-top: 40%;
+  width: 12rem;
+  height: 12rem;
   background: var(--fundo);
   display: flex;
   border: 2.5px solid var(--cor2);
   border-radius: 5%;
   border-top-right-radius: 15%;
-  margin-left: 50%;
   transition: all .2s;
   flex-direction: column;
 }
 .perfil-navbar-opened button{
-  margin-left: 75%;
+  margin-left: 65%;
   margin-top: .5rem;
+  transition: all .1s;
+  border: 2.5px solid var(--cor1);
 
 }
-.perfil-navbar-opened span, a{
+.perfil-navbar-opened span,.perfil-navbar-opened a{
   color: #7F5AF0;
   align-self: center;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+  transition: all .1s;
+}
+/* --NAVBAR HOVER-- */
+.products-navbar:hover {
+  color:var(--cor2);
+  transition: color 0.4s;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.products-navbar:hover{
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+.products-navbar::after {
+  content: '';
+  width: 0%;
+  height: 1px;
+  background-color:var(--cor2);
+  position: fixed;
+  padding: 0.5px;
+  left: -0.2rem;
+
+  bottom: -0.5rem;
+  transition: width 0.2s;
+}
+.products-navbar:hover::after {
+  width: 100%;
+}
+.carrinho:hover, .perfil:hover{
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+.perfil-navbar-opened button:hover{
+  transform: scale(1.05);
+  transition: all 0.2s ease;
 }
 /* --MAIN-- */
+
 /* --slider-- */
 .container {
   max-width: 100%;
@@ -169,5 +207,96 @@ display: none;
 
 .gallery-wrapper::-webkit-scrollbar {
   display: none;
+}
+/* --SOBRE NOS-- */
+.section2{
+  display: flex;
+  flex-direction: column;
+}
+.section2 h1{
+  align-self: center;
+  font:2rem 'Oswald', sans-serif;
+  margin-top: 5%;
+
+}
+.about-us {
+  position: relative;
+  display: flex;
+  margin-top: 10rem;
+}
+.section2 .about-us::before {
+  content: '';
+  height: 30rem;
+  width: 30rem;
+  background: var(--cor2);
+  opacity: 0.7;
+  position: absolute;
+  top: -7.8%;
+  left: 4%;
+  right: auto;
+  z-index: 0;
+  border-radius: 5%;
+}
+.about-us img{
+  position: relative;
+  height: 30rem;
+  width: 30rem;
+  border-radius: 5%;
+  margin-left: 7%;
+  margin-right: auto;
+}
+.about-us h1{
+  font: 30px 'Oswald', sans-serif;
+  margin-bottom: 5%;
+}
+.about-us .text-about-us{
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+  margin-left: 10%;
+  margin-right: auto;
+  margin-top: 2%;
+  font: 16px 'Oswald', sans-serif;
+}
+/* --NOSSA MISSAO-- */
+.our-mission{
+  position: relative;
+  display: flex;
+  margin-top: 10rem;
+
+}
+.section2 .our-mission::before {
+  content: '';
+  height: 30rem;
+  width: 30rem;
+  background: var(--cor2);
+  opacity: 0.7;
+  position: absolute;
+  top: -7.8%;
+  right: 4%;
+  left: auto;
+  z-index: 0;
+  border-radius: 5%;
+}
+.our-mission img{
+  position: relative;
+  height: 30rem;
+  width: 30rem;
+  border-radius: 5%;
+  margin-right: 7%;
+  margin-left: auto;
+}
+.our-mission h1{
+  font: 30px 'Oswald', sans-serif;
+  margin-bottom: 5%;
+}
+.our-mission .text-about-us{
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+  margin-right: 10%;
+  margin-left: auto;
+  margin-top: 2%;
+  font: 16px 'Oswald', sans-serif;
 }
 /* --FOOTER-- */

@@ -33,15 +33,18 @@
         </a>
       </div>
       <div class="navbar">
-        <div><a href="../Products/products.html">Produtos</a></div>
+        <div class="products-navbar"><a href="../Products/products.html">Produtos</a></div>
         <div class="carrinho">
           <a href="../Carrinho/carrinho.html">
-          <img src="../assets/icons/shopping-cart.svg" alt="Carrinho de compras" />
-        </a>
+            <img
+              src="../assets/icons/shopping-cart.svg"
+              alt="Carrinho de compras"
+            />
+          </a>
         </div>
         <div class="perfil" id="perfil-navbar">
           <button onclick="navbarOnClick()" class="button-navbar">
-            <img src="../assets/icons/person.svg" alt="Perfil"/>
+            <img src="../assets/icons/person.svg" alt="Perfil" />
           </button>
           <a href=""><span>Perfil</span></a>
           <span>Sair</span>
@@ -50,20 +53,56 @@
     </header>
     <!-- --MAIN-- -->
     <main>
-      <!-- --SLIDER-- -->
-      <div class="container">
-        <button class="arrow-left control" aria-label="Imagem Anterior"><img src="../assets/icons/keyboard_arrow_left.svg" alt=""></button>
-        <button class="arrow-right control" aria-label="Proxima Imagem"><img src="../assets/icons/keyboard_arrow_right.svg" alt=""></button>
-        <div class="gallery-wrapper">
-          <div class="gallery">
-            <img src="../assets/images/swiper-image.jpg" alt="Beach Image" class="item">
-            <img src="../assets/images/swiper-image2.jpg" alt="Animal Image" class="item">
-            <img src="../assets/images/swiper-image3.jpg" alt="Street Image" class="item">
+      <section class="section1">
+        <!-- --SLIDER-- -->
+        <div class="container">
+          <button class="arrow-left control" aria-label="Imagem Anterior">
+            <img src="../assets/icons/keyboard_arrow_left.svg" alt="" />
+          </button>
+          <button class="arrow-right control" aria-label="Proxima Imagem">
+            <img src="../assets/icons/keyboard_arrow_right.svg" alt="" />
+          </button>
+          <div class="gallery-wrapper">
+            <div class="gallery">
+              <img
+                src="../assets/images/swiper-image.jpg"
+                alt="Beach Image"
+                class="item"
+              />
+              <img
+                src="../assets/images/swiper-image2.jpg"
+                alt="Animal Image"
+                class="item"
+              />
+              <img
+                src="../assets/images/swiper-image3.jpg"
+                alt="Street Image"
+                class="item"
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <!-- --/SLIDER-- -->
-      
+        <!-- --/SLIDER-- -->
+      </section>
+
+      <section class="section2">
+        <!-- --SOBRE NOS-- -->
+        <h1>Sobre nós</h1>
+        <div class="about-us">
+          <img src="../assets/images/imagempatrick.jpeg" alt="">
+          <div class="text-about-us"> 
+            <h1>Um pouco sobre nós</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab aperiam eius nemo nisi repellendus fuga cumque reprehenderit ea enim magni? Aliquid facilis exercitationem iste dolor reprehenderit quasi a, eaque architecto.</p>
+          </div>
+        </div>
+        <div class="our-mission">
+          <div class="text-about-us"> 
+            <h1>Nossa missao</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab aperiam eius nemo nisi repellendus fuga cumque reprehenderit ea enim magni? Aliquid facilis exercitationem iste dolor reprehenderit quasi a, eaque architecto.</p>
+          </div>
+          <img src="../assets/images/imagempatrick.jpeg" alt="">
+        </div>
+      </section>
     </main>
     <!-- --FOOTER-- -->
     <footer></footer>
