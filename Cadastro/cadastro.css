@@ -12,29 +12,7 @@ body{
   flex-direction: column;
 }
 
-/* --Logo-- */
-.logo{
-display: flex; 
-flex-direction: column;
-align-items: center;
-}
-.logo img{
-  width: 12.5rem;
-  height: 12.5rem;
-}
-.logo span{
-  font:30px 'Dancing Script', cursive;
-  color: var(--cor1);
-}
-.logo span span{
-  color: var(--cor2);
-}
-.slogan{
-  position: absolute;
-  margin-top: 10rem;
-}
-
-/* --formulario de login-- */
+/* --formulario de registro-- */
 .container{
   display: flex;
   flex-direction: column;
@@ -45,7 +23,7 @@ align-items: center;
   border-radius: 1.5rem;
   box-shadow: 1px -2px 15px 2px rgba(0,0,0,0.37);
   border: 2px solid rgba(0, 0, 0, 0.133);
-  top: 18rem;
+  top: 10rem;
   align-self: center;
 }
 form{
@@ -78,7 +56,6 @@ form .button{
   margin-top: 3rem;
   margin-bottom: 3rem;
   font:2rem 'Oswald', sans-serif;
-  color: var(--cor1);
 }
 .button:hover{
   transform: scale(1.1);
@@ -97,12 +74,6 @@ border: 1px solid;
 animation: none;
 }
 span{
-  font:0.9rem 'Roboto', sans-serif;
-  align-self: center;
-}
-
-h2{
-  margin-top: -1rem;
   font:0.9rem 'Roboto', sans-serif;
   align-self: center;
 }

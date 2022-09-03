@@ -29,9 +29,12 @@ body{
   border-bottom: 2.5px solid var(--cor2);
 }
 .logo{
+  position: absolute;
   width: 30rem;
   height: 100%;
   display: flex;
+  margin-right: 50%;
+  margin-top: -.5%;
 }
 .logo img{
   width: 7rem;
@@ -61,7 +64,6 @@ body{
   font: 500 15px 'Roboto',sans-serif;
   color: var(--fundo);
   align-self: center;
-  
 }
 .button-navbar{
   border-radius: 100%;
@@ -70,7 +72,7 @@ body{
   border: none;
   cursor: pointer;
 }
-.navbar .perfil{
+.perfil{
   border-radius: 100%;
   height: 3.5rem;
   width: 3.5rem;
@@ -79,19 +81,43 @@ body{
   align-items: center;
   justify-content: center;
   border: 2.5px solid var(--cor2);
+  transition: all .2s;
 }
 .navbar{
   display: flex;
-  align-self: flex-end;
   height: 100%;
-  max-width: 30rem;
   align-items: center;
-  
+  margin-left: 70%;
+}
+.perfil span{
+display: none;
+}
+.perfil-navbar-opened{
+  margin-top: 45%;
+  width: 15rem;
+  height: 15rem;
+  background: var(--fundo);
+  display: flex;
+  border: 2.5px solid var(--cor2);
+  border-radius: 5%;
+  border-top-right-radius: 15%;
+  margin-left: 50%;
+  transition: all .2s;
+  flex-direction: column;
+}
+.perfil-navbar-opened button{
+  margin-left: 75%;
+  margin-top: .5rem;
+
+}
+.perfil-navbar-opened span, a{
+  color: #7F5AF0;
+  align-self: center;
+  margin-top: 3rem;
 }
 /* --MAIN-- */
 /* --slider-- */
 .container {
-  position: relative;
   max-width: 100%;
   max-height: 55rem;
   border-bottom: 2px solid var(--cor2);

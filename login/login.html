@@ -28,14 +28,10 @@
       <span>Nosso meio <span>Sua felicidade!</span></span>
       </div>
     </div>
-    <!-- --IMAGEM DE BOAS VINDAS-- -->
-    <div class="welcome">
-      <span>Bem Vindo!</span>
-      <img src="../assets/images/business.png" alt="Bem Vindo ao Bike Vibes!">
-    </div>
     <!-- --FORMULARIO DE LOGIN-- -->
     <div class="container">
-      <h1>Faça seu login aqui!</h1>
+        <h1> Seja bem vindo!</h1>
+      <h2>Faça seu login aqui!</h2>
       <form
         id="form1"
         name="form1"
@@ -44,9 +40,9 @@
         action="login.php"
       >
         <label for="login">E-mail:</label>
-        <input type="text" name="login" class="entrada" id="login" />
+        <input type="text" name="login" required = "yes" class="entrada" id="login" />
         <label for="senha">Senha:</label>
-        <input type="password" class="entrada" name="senha" id="senha" />
+        <input type="password" class="entrada" required = "yes"  name="senha" id="senha" />
         <span id="message"></span>
         <input
           type="submit"
@@ -57,7 +53,8 @@
         />
       </form>
       <span>
-        Ainda não tem usuário ? <a href="cadastro.html">Cadastre-se aqui</a>
+        Ainda não tem usuário ? <a href="../Cadastro/cadastro.html">Cadastre-se aqui</a>
       </span>
+      </div>
   </body>
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- --CSS-- -->
+      <link rel="stylesheet" href="../Cadastro/cadastro.css" />
+      <!-- --FAVICON-- -->
+      <link
+        rel="shortcut icon"
+        href="../assets/icons/favicon.svg"
+        type="image/x-icon"
+      />
+      <!-- --FONTS-- -->
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+        rel="stylesheet"
+      />
+      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <title>Bike Vibes - Cadastro</title>
+</head>
+<body>
+  <!-- --FORMULARIO DE REGISTRO-- -->
+  <div class="container">
+    <h1>Faça seu registro!</h1>
+    <form
+      id="form1"
+      name="form1"
+      method="post"
+      autocomplete="off"
+      action="login.php"
+    >
+      <label for="login">E-mail:</label>
+      <input type="text" name="login" required = "yes" class="entrada" id="login" />
+      <label for="senha">Senha:</label>
+      <input type="password" class="entrada" required = "yes"  name="senha" id="senha" />
+      <label for="senha">Repetir Senha:</label>
+      <input type="password" class="entrada" required = "yes"  name="senha" id="senha" />
+      <span id="message"></span>
+      <input
+        type="submit"
+        name="button"
+        id="button"
+        class="button"
+        value="Cadastrar-se"
+      />
+    </form>
+    <span>
+      Já tem um usuário ? <a href="../login/login.html">Faça Login aqui</a>
+    </span>
+    </div>
+
+  </form>
+</body>
+</html>

@@ -1,6 +1,11 @@
-function navbarOnClick() {
-  
+
+
+  function navbarOnClick() {
+    const navbar= document.getElementById("perfil-navbar")
+    navbar.classList.toggle("perfil")
+    navbar.classList.toggle("perfil-navbar-opened")
 }
+
 // CARROUSSEL
 const controls = document.querySelectorAll(".control");
 let currentItem = 0;
