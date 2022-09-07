@@ -115,7 +115,7 @@ display: none;
 .perfil-navbar-opened span,.perfil-navbar-opened a{
   color: #7F5AF0;
   align-self: center;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   transition: all .1s;
 }
 /* --NAVBAR HOVER-- */
@@ -137,7 +137,6 @@ display: none;
   position: fixed;
   padding: 0.5px;
   left: -0.2rem;
-
   bottom: -0.5rem;
   transition: width 0.2s;
 }
@@ -156,7 +155,7 @@ display: none;
 
 /* --slider-- */
 .container {
-  max-width: 100%;
+  width: 100%;
   max-height: 55rem;
   border-bottom: 2px solid var(--cor2);
 }
@@ -188,16 +187,35 @@ display: none;
 .gallery {
   display: flex;
   flex-flow: row ;
-  width: 100%;
+  width: 200%;
 }
 .item {
-  width: 100%;
+  width: 200rem;
   height: 50rem;
   transition: all 600ms ease-in-out;
 }
 
 .gallery-wrapper::-webkit-scrollbar {
   display: none;
+}
+/* --Faixa de titulo-- */
+.faixa{
+  width: 50%;
+  height: 3rem; 
+  position: relative;
+  top: 1.5rem;
+  left: 25%;
+  right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.faixa span{
+  font:30px 'Dancing Script', cursive;
+  color: var(--cor1);
+}
+.faixa span span{
+  color: var(--cor2);
 }
 /* --SOBRE NOS-- */
 .section2{
@@ -244,9 +262,9 @@ display: none;
   display: flex;
   flex-direction: column;
   width: 40rem;
-  margin-left: 10%;
+  margin-left: -10%;
   margin-right: auto;
-  margin-top: 2%;
+  margin-top: 5%;
   font: 16px 'Oswald', sans-serif;
 }
 /* --NOSSA MISSAO-- */
@@ -281,13 +299,13 @@ display: none;
   font: 30px 'Oswald', sans-serif;
   margin-bottom: 5%;
 }
-.our-mission .text-about-us{
+.our-mission .text-our-mission{
   display: flex;
   flex-direction: column;
   width: 40rem;
-  margin-right: 10%;
   margin-left: auto;
-  margin-top: 2%;
+  margin-right: -5%;
+  margin-top: 8%;
   font: 16px 'Oswald', sans-serif;
   margin-bottom: 5rem;
 }
