@@ -1,8 +1,15 @@
 import  express  from "express"
+
 const app = express()
 
 app.get('/user', (req,res)=>{
 
+    return res.json(
+        {
+            "saudacao":"ola mundo",
+            "aaa":"auau"
+        }
+    )
 })
 app.post('/user',(req,res)=>{
 

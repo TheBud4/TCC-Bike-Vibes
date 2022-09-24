@@ -1,11 +1,4 @@
 
-
-  function navbarOnClick() {
-    const navbar= document.getElementById("perfil-navbar")
-    navbar.classList.toggle("perfil")
-    navbar.classList.toggle("perfil-navbar-opened")
-}
-
 // CARROUSSEL
 let time = 4000,
       currentImageIndex = 0,
@@ -25,3 +18,16 @@ let time = 4000,
           },time)
         }
         window.addEventListener("load",start)
+
+//window loader
+
+
+var i = setInterval(function () {
+    
+  clearInterval(i);
+
+  // O código desejado é apenas isto:
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("content").style.display = "inline";
+
+}, 4200);

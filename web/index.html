@@ -10,6 +10,8 @@
       href="../../assets/icons/favicon.svg"
       type="image/x-icon"
     />
+    <!-- --JAVASCRIPT-- -->
+    <script src="./script.js"></script>
     <!-- --CSS-- -->
     <link rel="stylesheet" href="./style.css" />
     <!-- --FONTS-- -->
@@ -22,6 +24,15 @@
     <title>Bike Vibes</title>
   </head>
   <body>
+    <div id="loading" style="display: flex; align-self: center; margin-top: 10%;">
+      <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+    <lord-icon
+    src="https://cdn.lordicon.com/xjovhxra.json"
+    trigger="loop"
+    style="width:250px;height:250px">
+    </lord-icon>
+  </div>
+    <div id="content" style="display:none">
     <!-- --HEADER-- -->
     <header id="header">
       <div class="logo">
@@ -37,21 +48,9 @@
         <div class="products-navbar">
           <a href="./Products/products.html">Produtos</a>
         </div>
-        <div class="carrinho">
-          <a href="./Carrinho/carrinho.html">
-            <img
-              src="./assets/icons/shopping-cart.svg"
-              alt="Carrinho de compras"
-            />
-          </a>
-        </div>
-        <div class="perfil" id="perfil-navbar">
-          <button onclick="navbarOnClick()" class="button-navbar">
-            <img src="./assets/icons/person.svg" alt="Perfil" />
-          </button>
-          <a href="./Logado/Main/Perfil/perfil.html"><span>Perfil</span></a>
-          <a href="./Logado/Main/Minhas-Compras/historico.html"><span>Minhas Compras</span></a>
-          <span>Sair</span>
+        <div>
+          <a href="./login/login.html">Fazer Login</a>
+          <a href="./Cadastro/cadastro.html">/Cadastro</a>
         </div>
       </div>
     </header>
@@ -134,6 +133,6 @@
         ></a>
       </div>
     </div>
-    <script src="./script.js"></script>
+  </div>
   </body>
 </html>

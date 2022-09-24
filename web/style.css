@@ -67,71 +67,26 @@
     color: var(--fundo);
     align-self: center;
   }
-  .button-navbar{
-    border-radius: 100%;
-    height: 3.2rem;
-    width: 3.2rem;
-    border: none;
-    cursor: pointer;
-  }
-  .perfil{
-    border-radius: 100%;
-    height: 3.5rem;
-    width: 3.5rem;
-    background: var(--fundo);
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    border: 2.5px solid var(--cor2);
-    transition: all .2s;
-  }
+
   .navbar{
     display: flex;
     height: 100%;
     align-items: center;
     margin-left: 70%;
   }
-  .perfil span{
-  display: none;
-  }
-  .perfil-navbar-opened{
-    margin-right: 1%;
-    margin-top: 40%;
-    width: 12rem;
-    height: 12rem;
-    background: var(--fundo);
-    display: flex;
-    border: 2.5px solid var(--cor2);
-    border-radius: 5%;
-    border-top-right-radius: 15%;
-    transition: all .2s;
-    flex-direction: column;
-  }
-  .perfil-navbar-opened button{
-    margin-left: 65%;
-    margin-top: .5rem;
-    transition: all .1s;
-    border: 2.5px solid var(--cor1);
-  
-  }
-  .perfil-navbar-opened span,.perfil-navbar-opened a{
-    color: #7F5AF0;
-    align-self: center;
-    margin-top: 1rem;
-    transition: all .1s;
-  }
+
   /* --NAVBAR HOVER-- */
-  .products-navbar:hover {
+  .navbar div:hover {
     color:var(--cor2);
     transition: color 0.4s;
     position: relative;
     transition: all 0.2s ease;
   }
-  .products-navbar:hover{
+  .navbar div:hover{
     transform: scale(1.05);
     transition: all 0.2s ease;
   }
-  .products-navbar::after {
+  .navbar div::after {
     content: '';
     width: 0%;
     height: 1px;
@@ -142,16 +97,8 @@
     bottom: -0.5rem;
     transition: width 0.2s;
   }
-  .products-navbar:hover::after {
+  .navbar div:hover::after {
     width: 100%;
-  }
-  .carrinho:hover, .perfil:hover{
-    transform: scale(1.05);
-    transition: all 0.2s ease;
-  }
-  .perfil-navbar-opened button:hover{
-    transform: scale(1.05);
-    transition: all 0.2s ease;
   }
   /* --MAIN-- */
   
