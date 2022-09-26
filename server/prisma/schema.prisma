@@ -9,3 +9,53 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model usuario {
+  id    Int    @id @default(autoincrement())
+  nome  String
+  CPF   String @unique
+  RG    String @unique
+  email String @unique
+  senha String
+
+  aluguel   aluguel[]
+  IDUsuario nota[]
+}
+
+model funcionario {
+  id    Int    @id @default(autoincrement())
+  nome  String
+  email String @unique
+  senha String
+}
+
+model aluguel {
+  id        Int      @id @default(autoincrement())
+  data      DateTime @default(now())
+  idUsuario Int      @unique
+
+  UsuarioID usuario @relation(fields: [idUsuario], references: [id])
+  IDAluguel nota[]
+}
+
+model produtos {
+  id         Int    @id @default(autoincrement())
+  nome       String
+  descricao  String
+  prodIMG    String
+  modelo     String
+  IDProdutos nota[]
+}
+
+model nota {
+  id         Int      @id @default(autoincrement())
+  emissao    DateTime
+  vencimento DateTime
+  devolucao  DateTime
+  IDUsuario  Int
+  IDAluguel  Int
+  IDProduto  Int
+  UsuarioID  usuario  @relation(fields: [IDUsuario], references: [id])
+  AluguelID  aluguel  @relation(fields: [IDAluguel], references: [id])
+  ProdutoID  produtos @relation(fields: [IDProduto], references: [id])
+}
