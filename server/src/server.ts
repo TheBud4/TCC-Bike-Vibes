@@ -39,6 +39,19 @@ app.post('/user/bikes', async(req,res)=>{
 })
 //PRODUTOS
 app.post('/bikes',async(req,res)=>{
+  const body = req.body
+
+  const produtos = await prisma.produtos.create({
+    data:{
+      nome: body.nome,
+      descricao:body.descricao,
+      prodIMG:body.prodIMG,
+      modelo:body.modelo,
+    }
+  })
+  return res.status(201).json(produtos)
+})
+app.get('/bikes',async(req,res)=>{
     const bikes = await prisma.produtos.findMany({
         select:{
             id:true,
@@ -49,9 +62,6 @@ app.post('/bikes',async(req,res)=>{
         }
     })
     return res.json(bikes)
-})
-app.get('/bikes',(req,res)=>{
-
 })
 
 //FUNCIONARIO
