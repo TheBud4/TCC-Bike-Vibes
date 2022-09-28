@@ -14,7 +14,6 @@ model usuario {
   id    Int    @id @default(autoincrement())
   nome  String
   CPF   String @unique
-  RG    String @unique
   email String @unique
   senha String
 
@@ -55,7 +54,8 @@ model nota {
   IDUsuario  Int
   IDAluguel  Int
   IDProduto  Int
-  UsuarioID  usuario  @relation(fields: [IDUsuario], references: [id])
-  AluguelID  aluguel  @relation(fields: [IDAluguel], references: [id])
-  ProdutoID  produtos @relation(fields: [IDProduto], references: [id])
+
+  UsuarioID usuario  @relation(fields: [IDUsuario], references: [id])
+  AluguelID aluguel  @relation(fields: [IDAluguel], references: [id])
+  ProdutoID produtos @relation(fields: [IDProduto], references: [id])
 }
