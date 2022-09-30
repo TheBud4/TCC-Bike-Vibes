@@ -10,6 +10,7 @@ const prisma = new PrismaClient()
 
 // USUARIO
 app.get('/user',[
+    body("email").isEmail().withMessage("O e-mail precisa ser válido"),
 
 
 ], async (req: express.Request,res:express.Response)=>{
@@ -21,20 +22,14 @@ app.get('/user',[
             email:true,
             senha:true
         }
-    })
+    })  
     return res.json(users)
 })
 app.post('/user',[
     body("email").isEmail().withMessage("O e-mail precisa ser válido"),
-    body("email").custom(value =>{
-        if(!value){
-            return Promise.reject("E-mail é obrigatório")
-        }
-
-    }),
     body('senha').isLength({ min: 8 }).withMessage("A senha deve conter ao menos 8 caracteres"),
     body('confirmacaosenha').custom((value, { req }) => {
-        if (value !== req.body.password) {
+        if (value !== req.body.senha) {
           throw new Error('As senhas não coincidem');
         }
         return true;
@@ -44,7 +39,7 @@ app.post('/user',[
     const errors = validationResult(req)
     if(!errors.isEmpty()){
         return res.status(400).json({errors: errors.array()})
-    }
+    }else{
     const body = req.body
     const usuario = await prisma.usuario.create({
         data:{
@@ -55,18 +50,24 @@ app.post('/user',[
         }
       })
       return res.status(201).json(usuario)
-  });
+  }});
+  //carrinho
 app.post('/user/bikes', async(req,res)=>{
-    const users = await prisma.usuario.findMany({
+    const historico = await prisma.produtos.findMany({
         select:{
             id:true,
             nome:true,
-            CPF:true,
-            email:true,
-            senha:true
+            descricao:true,
+            prodIMG:true,
+            modelo:true,
+            criacao:true
         }
     })
-    return res.json(users)
+    return res.json(historico )
+})
+//historico de compras
+app.post('/user/historico', async(req,res)=>{
+    
 })
 //PRODUTOS
 app.post('/bikes',async(req,res)=>{
@@ -89,7 +90,8 @@ app.get('/bikes',async(req,res)=>{
             nome:true,
             descricao:true,
             prodIMG:true,
-            modelo:true
+            modelo:true,
+            criacao:true
         }
     })
     return res.json(bikes)
@@ -98,9 +100,6 @@ app.get('/bikes',async(req,res)=>{
 //FUNCIONARIO
 app.get('/admin',(req,res)=>{
 
-})
-app.post('/admin',(req,res)=>{
-  
 })
 app.listen(3333,() =>{
     console.log('Server ta on na porta 3333');

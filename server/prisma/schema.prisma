@@ -16,16 +16,10 @@ model usuario {
   CPF   String @unique
   email String @unique
   senha String
+  Padm Boolean
 
   aluguel   aluguel[]
   IDUsuario nota[]
-}
-
-model funcionario {
-  id    Int    @id @default(autoincrement())
-  nome  String
-  email String @unique
-  senha String
 }
 
 model aluguel {
@@ -43,12 +37,14 @@ model produtos {
   descricao  String
   prodIMG    String
   modelo     String
+  criacao    DateTime @default(now())
+
   IDProdutos nota[]
 }
 
 model nota {
   id         Int      @id @default(autoincrement())
-  emissao    DateTime
+  emissao    DateTime @default(now())
   vencimento DateTime
   devolucao  DateTime
   IDUsuario  Int

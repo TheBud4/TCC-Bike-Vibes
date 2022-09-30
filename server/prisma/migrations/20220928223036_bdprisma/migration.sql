@@ -3,7 +3,6 @@ CREATE TABLE "usuario" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "nome" TEXT NOT NULL,
     "CPF" TEXT NOT NULL,
-    "RG" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "senha" TEXT NOT NULL
 );
@@ -30,13 +29,14 @@ CREATE TABLE "produtos" (
     "nome" TEXT NOT NULL,
     "descricao" TEXT NOT NULL,
     "prodIMG" TEXT NOT NULL,
-    "modelo" TEXT NOT NULL
+    "modelo" TEXT NOT NULL,
+    "criacao" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- CreateTable
 CREATE TABLE "nota" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "emissao" DATETIME NOT NULL,
+    "emissao" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "vencimento" DATETIME NOT NULL,
     "devolucao" DATETIME NOT NULL,
     "IDUsuario" INTEGER NOT NULL,
@@ -49,9 +49,6 @@ CREATE TABLE "nota" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "usuario_CPF_key" ON "usuario"("CPF");
-
--- CreateIndex
-CREATE UNIQUE INDEX "usuario_RG_key" ON "usuario"("RG");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "usuario_email_key" ON "usuario"("email");
