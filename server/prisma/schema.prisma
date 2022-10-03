@@ -11,12 +11,12 @@ datasource db {
 }
 
 model usuario {
-  id    Int    @id @default(autoincrement())
+  id    Int     @id @default(autoincrement())
   nome  String
-  CPF   String @unique
-  email String @unique
+  CPF   String  @unique
+  email String  @unique
   senha String
-  Padm Boolean
+  Padm  Boolean
 
   aluguel   aluguel[]
   IDUsuario nota[]
@@ -32,12 +32,12 @@ model aluguel {
 }
 
 model produtos {
-  id         Int    @id @default(autoincrement())
-  nome       String
-  descricao  String
-  prodIMG    String
-  modelo     String
-  criacao    DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  nome      String
+  descricao String
+  prodIMG   String
+  modelo    String
+  criacao   DateTime @default(now())
 
   IDProdutos nota[]
 }

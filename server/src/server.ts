@@ -1,17 +1,20 @@
-import { PrismaClient, usuario } from "@prisma/client"
+import { PrismaClient,produtos,usuario} from "@prisma/client"
 import  express  from "express"
 import { body,validationResult } from "express-validator"
-import { IsEmailOptions } from "express-validator/src/options"
-import { Sql } from "@prisma/client/runtime"
+import cors from 'cors'
+
 
 const app = express()
+
+app.use(cors())
+
 app.use(express.json())
+
 const prisma = new PrismaClient()
 
 // USUARIO
 app.get('/user',[
     body("email").isEmail().withMessage("O e-mail precisa ser válido"),
-
 
 ], async (req: express.Request,res:express.Response)=>{
     const users = await prisma.usuario.findMany({
@@ -20,11 +23,13 @@ app.get('/user',[
             nome:true,
             CPF:true,
             email:true,
-            senha:true
+            senha:true,
+
         }
     })  
     return res.json(users)
 })
+
 app.post('/user',[
     body("email").isEmail().withMessage("O e-mail precisa ser válido"),
     body('senha').isLength({ min: 8 }).withMessage("A senha deve conter ao menos 8 caracteres"),
@@ -46,12 +51,14 @@ app.post('/user',[
         nome: body.nome,
         senha:body.senha,
         CPF:body.CPF,
-        email:body.email
+        email:body.email,
+        Padm:false,
         }
       })
       return res.status(201).json(usuario)
   }});
   //carrinho
+
 app.post('/user/bikes', async(req,res)=>{
     const historico = await prisma.produtos.findMany({
         select:{
@@ -60,22 +67,26 @@ app.post('/user/bikes', async(req,res)=>{
             descricao:true,
             prodIMG:true,
             modelo:true,
-            criacao:true
+            criacao:true,
         }
     })
-    return res.json(historico )
+    return res.json(historico)
 })
+
 //historico de compras
+
 app.post('/user/historico', async(req,res)=>{
     
 })
+
 //PRODUTOS
+
 app.post('/bikes',async(req,res)=>{
   const body = req.body
 
   const produtos = await prisma.produtos.create({
     data:{
-      nome: body.nome,
+      nome: body.nome, 
       descricao:body.descricao,
       prodIMG:body.prodIMG,
       modelo:body.modelo,
@@ -83,6 +94,7 @@ app.post('/bikes',async(req,res)=>{
   })
   return res.status(201).json(produtos)
 })
+
 app.get('/bikes',async(req,res)=>{
     const bikes = await prisma.produtos.findMany({
         select:{
@@ -98,9 +110,11 @@ app.get('/bikes',async(req,res)=>{
 })
 
 //FUNCIONARIO
+
 app.get('/admin',(req,res)=>{
 
 })
+
 app.listen(3333,() =>{
     console.log('Server ta on na porta 3333');
 })

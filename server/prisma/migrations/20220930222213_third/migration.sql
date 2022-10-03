@@ -4,15 +4,8 @@ CREATE TABLE "usuario" (
     "nome" TEXT NOT NULL,
     "CPF" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "senha" TEXT NOT NULL
-);
-
--- CreateTable
-CREATE TABLE "funcionario" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "nome" TEXT NOT NULL,
-    "email" TEXT NOT NULL,
-    "senha" TEXT NOT NULL
+    "senha" TEXT NOT NULL,
+    "Padm" BOOLEAN NOT NULL
 );
 
 -- CreateTable
@@ -52,9 +45,6 @@ CREATE UNIQUE INDEX "usuario_CPF_key" ON "usuario"("CPF");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "usuario_email_key" ON "usuario"("email");
-
--- CreateIndex
-CREATE UNIQUE INDEX "funcionario_email_key" ON "funcionario"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "aluguel_idUsuario_key" ON "aluguel"("idUsuario");
