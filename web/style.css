@@ -99,6 +99,7 @@
   }
   .navbar div:hover::after {
     width: 100%;
+    
   }
   /* --MAIN-- */
   

@@ -35,9 +35,9 @@ CREATE TABLE "nota" (
     "IDUsuario" INTEGER NOT NULL,
     "IDAluguel" INTEGER NOT NULL,
     "IDProduto" INTEGER NOT NULL,
-    CONSTRAINT "nota_IDUsuario_fkey" FOREIGN KEY ("IDUsuario") REFERENCES "usuario" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "nota_IDProduto_fkey" FOREIGN KEY ("IDProduto") REFERENCES "produtos" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "nota_IDAluguel_fkey" FOREIGN KEY ("IDAluguel") REFERENCES "aluguel" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT "nota_IDProduto_fkey" FOREIGN KEY ("IDProduto") REFERENCES "produtos" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "nota_IDUsuario_fkey" FOREIGN KEY ("IDUsuario") REFERENCES "usuario" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateIndex

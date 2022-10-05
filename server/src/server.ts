@@ -24,7 +24,6 @@ app.get('/user',[
             CPF:true,
             email:true,
             senha:true,
-
         }
     })  
     return res.json(users)
@@ -52,7 +51,7 @@ app.post('/user',[
         senha:body.senha,
         CPF:body.CPF,
         email:body.email,
-        Padm:false,
+        Padm:body.Padm,
         }
       })
       return res.status(201).json(usuario)
@@ -108,7 +107,18 @@ app.get('/bikes',async(req,res)=>{
     })
     return res.json(bikes)
 })
+app.patch('/bikes', (req,res)=>{
 
+})
+app.delete('/bikes', async(req,res)=>{
+    const body = req.body
+    const bikes = await prisma.produtos.delete({
+        where:{
+        id:body.id,
+        }
+ })
+ return res.status(200).json(bikes)
+})
 //FUNCIONARIO
 
 app.get('/admin',(req,res)=>{

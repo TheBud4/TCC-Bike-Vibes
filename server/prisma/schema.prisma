@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,13 +8,13 @@ datasource db {
 }
 
 model usuario {
-  id    Int     @id @default(autoincrement())
-  nome  String
-  CPF   String  @unique
-  email String  @unique
-  senha String
-  Padm  Boolean
-
+  id        Int      @id @default(autoincrement())
+  nome      String
+  CPF       String   @unique
+  email     String   @unique
+  senha     String
+  Padm      Boolean
+  
   aluguel   aluguel[]
   IDUsuario nota[]
 }
@@ -26,19 +23,17 @@ model aluguel {
   id        Int      @id @default(autoincrement())
   data      DateTime @default(now())
   idUsuario Int      @unique
-
-  UsuarioID usuario @relation(fields: [idUsuario], references: [id])
+  UsuarioID usuario  @relation(fields: [idUsuario], references: [id])
   IDAluguel nota[]
 }
 
 model produtos {
-  id        Int      @id @default(autoincrement())
-  nome      String
-  descricao String
-  prodIMG   String
-  modelo    String
-  criacao   DateTime @default(now())
-
+  id         Int      @id @default(autoincrement())
+  nome       String
+  descricao  String
+  prodIMG    String
+  modelo     String
+  criacao    DateTime @default(now())
   IDProdutos nota[]
 }
 
@@ -50,8 +45,7 @@ model nota {
   IDUsuario  Int
   IDAluguel  Int
   IDProduto  Int
-
-  UsuarioID usuario  @relation(fields: [IDUsuario], references: [id])
-  AluguelID aluguel  @relation(fields: [IDAluguel], references: [id])
-  ProdutoID produtos @relation(fields: [IDProduto], references: [id])
+  ProdutoID  produtos @relation(fields: [IDProduto], references: [id])
+  AluguelID  aluguel  @relation(fields: [IDAluguel], references: [id])
+  UsuarioID  usuario  @relation(fields: [IDUsuario], references: [id])
 }
