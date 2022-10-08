@@ -35,22 +35,16 @@
       <form
         id="form1"
         name="form1"
-        method="post"
+        method="get"
         autocomplete="off"
-        action="login.php"
+        action="login.js"
       >
         <label for="login">E-mail:</label>
-        <input type="text" name="login" required = "yes" class="entrada" id="login" />
+        <input type="text" name="E-mail" required = "yes" class="entrada" id="email" />
         <label for="senha">Senha:</label>
         <input type="password" class="entrada" required = "yes"  name="senha" id="senha" />
         <span id="message"></span>
-        <input
-          type="submit"
-          name="button"
-          id="button"
-          class="button"
-          value="Entrar"
-        />
+      <button class="button" onclick="submitLogin()" type="submit">Entrar</button>
       </form>
       <span>
         Ainda não tem usuário ? <a href="../Cadastro/cadastro.html">Cadastre-se aqui</a>

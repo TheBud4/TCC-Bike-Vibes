@@ -51,10 +51,11 @@ app.post('/user',[
         senha:body.senha,
         CPF:body.CPF,
         email:body.email,
-        Padm:body.Padm,
+        Padm:false,
         }
       })
       return res.status(201).json(usuario)
+
   }});
   //carrinho
 

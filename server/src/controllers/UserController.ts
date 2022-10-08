@@ -5,15 +5,17 @@
 
 // export class UserController {
 //      async getUsers (req: Request, res: Response){
-//         const users = await prisma.usuario.findMany({
-//             select:{
-//                 id:true,
-//                 nome:true,
-//                 CPF:true,
-//                 email:true,
-//                 senha:true,
-//             }
-//         })  
-//         return res.json(users)
+//         async (req: Request,res:Response)=>{
+//             const users = await prisma.usuario.findMany({
+//                 select:{
+//                     id:true,
+//                     nome:true,
+//                     CPF:true,
+//                     email:true,
+//                     senha:true,
+//                 }
+//             })  
+//             return res.json(users)
+//         }
 //     }
 // }
