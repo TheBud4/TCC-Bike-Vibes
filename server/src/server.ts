@@ -2,8 +2,7 @@ import { PrismaClient} from "@prisma/client"
 import  express  from "express"
 import { body,validationResult } from "express-validator"
 import cors from 'cors'
-
-
+import { Session } from "express-session"
 const app = express()
 
 app.use(cors())
@@ -13,23 +12,46 @@ app.use(express.json())
 const prisma = new PrismaClient()
 
 // USUARIO
-app.get('/user',[
-    body("email").isEmail().withMessage("O e-mail precisa ser válido"),
-
-], async (req: express.Request,res:express.Response)=>{
-    const users = await prisma.usuario.findMany({
+app.post('/user', async (req: express.Request,res:express.Response)=>{
+    const body = req.body
+    var Bemail:string = body.email
+    var Bsenha:string = body.senha
+    const user = await prisma.usuario.findFirst({
         select:{
             id:true,
             nome:true,
             CPF:true,
             email:true,
             senha:true,
+        },
+        where:{
+            email:Bemail,
+            senha:Bsenha
         }
-    })  
-    return res.json(users)
+    }) 
+    if (!(!user)){
+        let BDemail:string = user.email
+        let BDsenha:string = user.senha
+        if(Bemail == BDemail && Bsenha == BDsenha){
+        console.log(user);
+        return res.send('OK').status(200)
+    }else{
+        console.log(Bemail);
+        console.log(Bsenha);
+        return res.send('NO').status(400)
+
+    }
+    }
+    else{
+        res.send('404').status(404)
+    }
+        
 })
 
-app.post('/user',[
+
+
+
+app.post('/user/register',[
     body("email").isEmail().withMessage("O e-mail precisa ser válido"),
     body('senha').isLength({ min: 8 }).withMessage("A senha deve conter ao menos 8 caracteres"),
     body('confirmacaosenha').custom((value, { req }) => {
@@ -55,8 +77,12 @@ app.post('/user',[
         }
       })
       return res.status(201).json(usuario)
-
   }});
+
+
+
+
+
   //carrinho
 
 app.post('/user/bikes', async(req,res)=>{
@@ -73,11 +99,20 @@ app.post('/user/bikes', async(req,res)=>{
     return res.json(historico)
 })
 
+
+
+
+
+
 //historico de compras
 
 app.post('/user/historico', async(req,res)=>{
     
 })
+
+
+
+
 
 //PRODUTOS
 
@@ -120,6 +155,10 @@ app.delete('/bikes', async(req,res)=>{
  })
  return res.status(200).json(bikes)
 })
+
+
+
+
 //FUNCIONARIO
 
 app.get('/admin',(req,res)=>{
