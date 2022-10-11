@@ -2,7 +2,8 @@ import { PrismaClient} from "@prisma/client"
 import  express  from "express"
 import { body,validationResult } from "express-validator"
 import cors from 'cors'
-import { Session } from "express-session"
+import { time, timeStamp } from "console"
+
 const app = express()
 
 app.use(cors())
@@ -12,10 +13,9 @@ app.use(express.json())
 const prisma = new PrismaClient()
 
 // USUARIO
-app.post('/user', async (req: express.Request,res:express.Response)=>{
-    const body = req.body
-    var Bemail:string = body.email
-    var Bsenha:string = body.senha
+app.post('/user', async (req,res)=>{
+    var Bemail= req.body.email
+    var Bsenha= req.body.senha
     const user = await prisma.usuario.findFirst({
         select:{
             id:true,
@@ -33,17 +33,14 @@ app.post('/user', async (req: express.Request,res:express.Response)=>{
         let BDemail:string = user.email
         let BDsenha:string = user.senha
         if(Bemail == BDemail && Bsenha == BDsenha){
-        console.log(user);
         return res.send('OK').status(200)
+        
     }else{
-        console.log(Bemail);
-        console.log(Bsenha);
         return res.send('NO').status(400)
-
     }
     }
     else{
-        res.send('404').status(404)
+        res.send('NO').status(404)
     }
         
 })

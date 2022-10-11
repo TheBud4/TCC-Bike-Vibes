@@ -1,18 +1,32 @@
-
 async function logar(){
-    var email = document.getElementById('email')
-    var senha = document.getElementById('senha')
-   fetch('http://localhost:3333/user',{
+    var email = document.getElementById('email').value
+    var senha = document.getElementById('senha').value
+    var data = {
+        email,
+        senha
+    }
+  var fetchRes = fetch('http://localhost:3333/user',{
     method:'POST',
-    body:email,senha
-}).then(async (res)=>{
+    headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+    body:JSON.stringify(data)});
+  
+  fetchRes.then(async (res)=>{
     var status = await res.text()
     if(status == 'OK'){
         location.href = '../Logado/Usuario/Main/main-page.html'
-    }else{
-        console.log(status);
-        alert('nome ou senha incorretos')
+    }
+    else{
+        function warning(){ 
+            const divContainer = document.querySelector('.container')
+                const message = `<span class='alert'>nome ou senha incorretos</span>`
+                divContainer.innerHTML = message 
+                }
+                warning()
+                
     }
 })
 }
+
 
