@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff"/>
     <!-- --FAVICON-- -->
     <link
       rel="shortcut icon"
-      href="../../assets/icons/favicon.svg"
+      href="../../../assets/icons/favicon.svg"
       type="image/x-icon"
     />
     <!-- --CSS-- -->
@@ -22,12 +23,21 @@
     <title>Bike Vibes</title>
   </head>
   <body>
+    <div id="loading" style="display: flex; align-self: center; margin-top: 10%;">
+      <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+    <lord-icon
+    src="https://cdn.lordicon.com/xjovhxra.json"
+    trigger="loop"
+    style="width:250px;height:250px">
+    </lord-icon>
+  </div>
+    <div id="content" style="display:none">
     <!-- --HEADER-- -->
     <header id="header">
       <div class="logo">
         <a href="../Main/main-page.html"
           ><img
-            src="../../assets/images/bike-vibe-B.svg"
+            src="../../../assets/images/bike-vibe-B.svg"
             alt="Logo da Bike vibes"
           />
           <span>Bike <span>Vibes</span></span>
@@ -38,20 +48,15 @@
           <a href="../Products/products.html">Produtos</a>
         </div>
         <div class="carrinho">
-          <a href="../Carrinho/carrinho.html">
-            <img
-              src="../../assets/icons/shopping-cart.svg"
-              alt="Carrinho de compras"
-            />
-          </a>
+
         </div>
         <div class="perfil" id="perfil-navbar">
           <button onclick="navbarOnClick()" class="button-navbar">
-            <img src="../../assets/icons/person.svg" alt="Perfil" />
+            <img src="../../../assets/icons/person.svg" alt="Perfil" />
           </button>
-          <a href="./Perfil/perfil.html"><span>Perfil</span></a>
-          <a href="./Minhas-Compras/historico.html"><span>Minhas Compras</span></a>
-          <span>Sair</span>
+          <a href=".././Perfil/perfil.html"><span>Perfil</span></a>
+          <a href=".././Minhas-Compras/historico.html"><span>Minhas Compras</span></a>
+          <a href="../../../index.html"><span>Sair</span></a>
         </div>
       </div>
     </header>
@@ -60,9 +65,9 @@
       <section class="section1">
         <!-- --SLIDER-- -->
         <div id="slider">
-          <img class="selected" src="../../assets/images/swiper-image.jpg" alt="bicicleta">
-          <img src="../../assets/images/swiper-image2.jpg" alt="cara em cima da bicicleta">
-          <img src="../../assets/images/swiper-image3.jpg" alt="ciclista">
+          <img class="selected" src="../../../assets/images/swiper-image.jpg" alt="bicicleta">
+          <img src="../../../assets/images/swiper-image2.jpg" alt="cara em cima da bicicleta">
+          <img src="../../../assets/images/swiper-image3.jpg" alt="ciclista">
         </div>
         <!-- --/SLIDER-- -->
       </section>
@@ -72,7 +77,7 @@
       <section class="section2">
         <!-- --SOBRE NOS-- -->
         <div class="about-us">
-          <img src="../../assets/images/SOBRENOS.jpg" alt="" />
+          <img src="../../../assets/images/SOBRENOS.jpg" alt="" />
           <div class="text-about-us">
             <h1>Um pouco sobre nós</h1>
             <p>
@@ -96,7 +101,7 @@
               congestionamento interminável.
             </p>
           </div>
-          <img src="../../assets/images/NMISSAO.jpg" alt="" />
+          <img src="../../../assets/images/NMISSAO.jpg" alt="" />
         </div>
       </section>
       <section class="section3"></section>
@@ -105,7 +110,7 @@
     <div class="footer">
       <div class="logo footer-logo">
         <a href="#">
-          <img src="../../assets/images/bike-vibe-B.svg" alt="logo" />
+          <img src="../../../assets/images/bike-vibe-B.svg" alt="logo" />
           <span> Bike<span>Vibes</span></span></a
         >
         <p>©2022 BikeVibes.</p>
@@ -115,7 +120,7 @@
         <a href="https://instagram.com" target="_blank">
           <i class="icon"
             ><img
-              src="../../assets/icons/instagram1.svg"
+              src="../../../assets/icons/instagram1.svg"
               alt="contate-nos no instagram"
           /></i>
         </a>
@@ -125,15 +130,17 @@
         >
           <i class="icon"
             ><img
-              src="../../assets/icons/whatsapp.svg"
+              src="../../../assets/icons/whatsapp.svg"
               alt="contate-nos no whatsapp" /></i
         ></a>
         <a href="https://youtube.com" target="_blank"
           ><i class="icon">
-            <img src="../../assets/icons/facebook2.svg" alt="" /> </i
+            <img src="../../../assets/icons/facebook2.svg" alt="" /> </i
         ></a>
       </div>
     </div>
+    </div>
     <script src="../Main/main-page.js"></script>
+    <script src="../../../components/navbarComponent.js"></script>
   </body>
 </html>

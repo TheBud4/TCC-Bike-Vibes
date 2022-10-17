@@ -16,7 +16,8 @@ async function getProduto(){
         <span class = desc>${product.descricao}</span>
         </div>
         <div class="botaocomprar">
-          <button class="alugar" onclick="alugarBike()">Reservar</button>
+          <button class="editar" onclick="alugarBike()"><img src="../../../assets/icons/PNG/editar.png" alt="editar"></button>
+          <button class="excluir" onclick="alugarBike()"><img src="../../../assets/icons/x.svg" alt="excluir"></button>
         </div>
         </div>
     </div>
@@ -26,6 +27,9 @@ async function getProduto(){
   }
 
   function alugarBike(){
+    
+  }
+  function addProduto() {
     
   }
  getProduto()

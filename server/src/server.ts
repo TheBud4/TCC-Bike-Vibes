@@ -12,7 +12,7 @@ app.use(express.json())
 
 const prisma = new PrismaClient()
 
-// USUARIO
+// LOGIN
 app.post('/user', async (req,res)=>{
     var Bemail= req.body.email
     var Bsenha= req.body.senha
@@ -23,6 +23,7 @@ app.post('/user', async (req,res)=>{
             CPF:true,
             email:true,
             senha:true,
+            Padm:true
         },
         where:{
             email:Bemail,
@@ -32,7 +33,11 @@ app.post('/user', async (req,res)=>{
     if (!(!user)){
         let BDemail:string = user.email
         let BDsenha:string = user.senha
+        let BDadm:boolean = user.Padm
         if(Bemail == BDemail && Bsenha == BDsenha){
+            if(BDadm == true){
+        return res.send('ADM').status(200)
+            }
         return res.send('OK').status(200)
         
     }else{
@@ -46,8 +51,7 @@ app.post('/user', async (req,res)=>{
 })
 
 
-
-
+//CADASTRO
 app.post('/user/register',[
     body("email").isEmail().withMessage("O e-mail precisa ser válido"),
     body('senha').isLength({ min: 8 }).withMessage("A senha deve conter ao menos 8 caracteres"),
@@ -57,7 +61,6 @@ app.post('/user/register',[
         }
         return true;
       })
-
 ],async(req: express.Request,res:express.Response) => {
     const errors = validationResult(req)
     if(!errors.isEmpty()){
@@ -68,18 +71,26 @@ app.post('/user/register',[
         data:{
         nome: body.nome,
         senha:body.senha,
-        CPF:body.CPF,
         email:body.email,
+        CPF:'',
         Padm:false,
         }
       })
-      return res.status(201).json(usuario)
+        return res.status(201).send('OK').json(usuario)
   }});
-
-
-
-
-
+app.get('/validation',async(req: express.Request,res:express.Response) => {
+        const usuario = await prisma.usuario.findMany({
+            select:{
+            id:true,
+            nome:true,
+            senha:true,
+            CPF:true,
+            email:true,
+            Padm:true,
+            }
+          })
+            return res.json(usuario)
+});
   //carrinho
 
 app.post('/user/bikes', async(req,res)=>{

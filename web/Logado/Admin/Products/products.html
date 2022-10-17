@@ -7,7 +7,7 @@
     <!-- --FAVICON-- -->
     <link
       rel="shortcut icon"
-      href="../../assets/icons/favicon.svg"
+      href="../../../assets/icons/favicon.svg"
       type="image/x-icon"
     />
     <!-- --CSS-- -->
@@ -24,43 +24,52 @@
     <!-- --HEADER-- -->
     <header id="header">
       <div class="logo">
-        <a href="../Main/main-page.html"
-          ><img
-            src="../../assets/images/bike-vibe-B.svg"
+        <img
+            src="../../../assets/images/bike-vibe-B.svg"
             alt="Logo da Bike vibes"
           />
           <span>Bike<span>Vibes</span></span>
-        </a>
       </div>
-      <div class="navbar">
-        <div class="carrinho">
-          <a href="../Carrinho/carrinho.html">
-            <img
-              src="../../assets/icons/shopping-cart.svg"
-              alt="Carrinho de compras"
-            />
-          </a>
-        </div>
-        <div class="perfil" id="perfil-navbar">
-          <button onclick="navbarOnClick()" class="button-navbar">
-            <img src="../../assets/icons/person.svg" alt="Perfil" />
-          </button>
-          <a href="../Main/Perfil/perfil.html"><span>Perfil</span></a>
-          <a href="../Main/Minhas-Compras/historico.html"><span>Historico</span></a>
-          <span>Sair</span>
-        </div>
-      </div>
+      <div class="navbar"><a href="../../../index.html">Sair</a></div>
     </header>
     <!-- --MAIN-- -->
+    <div class="navegacao">
+      <button onclick="" class="usuarios">
+        <h1>Buscar todos os usuarios</h1>
+        <img src="../../../assets/icons/person.svg" alt="">
+      </button>
+
+      <button onclick="" class="usuarios">
+        <h1>Adicionar administrador</h1>
+        <img src="../../../assets/icons/person.svg" alt="">
+      </button>
+    </div>
     <main>
       <div class="produtos">
       </div>
-      <div class="compras">
+      <div class="adicionar">
         <div class="titulo">
-          <h2>Suas Reservas</h2>
+          <h2>Modificando grade de produtos</h2>
+          <div class="novoproduto">Adicione um novo produto <button class="adicionaritem" onclick="addProduto()"><img src="../../../assets/icons/PNG/plus.png" alt="adicionar"></button></div>
         </div>
       </div>
     </main>
+    <!-- --MODAIS--  -->
+    <div class="modal-add-produto">
+
+    </div>
+    <div class="modal-add-adm">
+
+    </div>
+    <div class="modal-ver-usuarios">
+
+    </div>
+    <div class="modal-edit-produto">
+
+    </div>
+    <div class="aviso-excluir-produto">
+
+    </div>
     <!-- --FOOTER-- -->
     <footer></footer>
     <script src="../../components/navbarComponent.js"></script>

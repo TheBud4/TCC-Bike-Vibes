@@ -63,7 +63,7 @@ body{
 .navbar div{
   text-transform: uppercase;
   margin-left: 1.5rem;
-  font: 500 15px 'Roboto',sans-serif;
+  font: 550 15px 'Roboto',sans-serif;
   color: var(--fundo);
   align-self: center;
 }
@@ -95,8 +95,7 @@ body{
 display: none;
 }
 .perfil-navbar-opened{
-  margin-right: 1%;
-  margin-top: 60%;
+  margin-top: 75%;
   width: 12rem;
   height: 12rem;
   background: var(--fundo);

@@ -1,0 +1,11 @@
+{
+  "[css]": {
+    "editor.formatOnType": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on"
+    },
+    "editor.suggestOnTriggerCharacters": true
+  }
+}

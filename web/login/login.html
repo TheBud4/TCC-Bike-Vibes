@@ -31,15 +31,15 @@
     <!-- --FORMULARIO DE LOGIN-- -->
     <div class="container">
         <h1> Seja bem vindo!</h1>
-      <h2>Faça seu login aqui!</h2>
       <form
-      autocomplete="on"
+      autocomplete="off"
       >
+      <div class="alert"><span id="message"></span></div>
         <label for="login">E-mail:</label>
         <input type="text" name="E-mail" required = "yes" class="entrada" placeholder="Digite aqui seu e-mail!" id="email" />
         <label for="senha">Senha:</label>
         <input type="password" class="entrada" required = "yes" placeholder="Digite aqui sua senha!" name="senha" id="senha" />
-        <span id="message"></span>
+        
       <button class="button" onclick="logar()" >Entrar</button>
       </form>
       <span>

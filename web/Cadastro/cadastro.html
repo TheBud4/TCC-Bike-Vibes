@@ -25,28 +25,17 @@
   <div class="container">
     <h1>Faça seu registro!</h1>
     <form
-      id="form1"
-      name="form1"
-      method="post"
       autocomplete="off"
-      action="./cadastro.js"
     >
-      <label for="login">Nome:</label>
-      <input type="text" name="nome" required = "yes" class="entrada" id="nome" />
-      <label for="login">E-mail:</label>
-      <input type="text" name="E-mail" required = "yes" class="entrada" id="email" />
-      <label for="senha">Senha:</label>
-      <input type="password" class="entrada" required = "yes"  name="senha" id="senha" />
-      <label for="senha">Repetir Senha:</label>
-      <input type="password" class="entrada" required = "yes"  name="senha" id="confirmacaosenha" />
+      <input type="text" name="nome" required = "yes" placeholder="Nome:" class="entrada" id="nome" />
+      <input type="text" name="E-mail" required = "yes" placeholder="E-mail:" class="entrada" id="email" />
+      <div class="password-container">
+      <input type="password" class="entrada password" required = "yes" placeholder="Senha:" name="senha" id="senha" />
+      <input type="password" class="entrada password password2" required = "yes" placeholder="Repetir Senha:" name="senha" id="confirmacaosenha" />
+    </div>
       <span id="message"></span>
-      <input
-        type="submit"
-        name="button"
-        id="button"
-        class="button"
-        value="Cadastrar-se"
-      />
+      <button class="button" onclick="Cadastro()" >Entrar</button>
+
     </form>
     <span>
       Já tem um usuário ? <a href="../login/login.html">Faça Login aqui</a>

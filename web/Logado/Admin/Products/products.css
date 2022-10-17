@@ -16,6 +16,7 @@
 body{
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 /* --HEADER-- */
 #header{
@@ -27,15 +28,13 @@ body{
   background: var(--cor1);
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   border-bottom: 2.5px solid var(--cor2);
 }
 .logo{
   position: absolute;
-  width: 30rem;
   height: 100%;
   display: flex;
-  margin-right: 50%;
 }
 .logo img{
   width: 7rem;
@@ -57,15 +56,12 @@ body{
 }
 /* --NAVBAR-- */
 .navbar a{
-  text-decoration: none;
-  color: var(--fundo);
-}
-.navbar div{
   text-transform: uppercase;
   margin-left: 1.5rem;
-  font: 500 15px 'Roboto',sans-serif;
+  font: 600 15px 'Roboto',sans-serif;
   color: var(--fundo);
   align-self: center;
+  text-decoration: none;
 }
 .button-navbar{
   border-radius: 100%;
@@ -74,51 +70,11 @@ body{
   border: none;
   cursor: pointer;
 }
-.perfil{
-  border-radius: 100%;
-  height: 3.5rem;
-  width: 3.5rem;
-  background: var(--fundo);
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  border: 2.5px solid var(--cor2);
-  transition: all .2s;
-}
 .navbar{
   display: flex;
   height: 100%;
   align-items: center;
   margin-left: 70%;
-}
-.perfil span{
-display: none;
-}
-.perfil-navbar-opened{
-  margin-right: 1%;
-  margin-top: 60%;
-  width: 12rem;
-  height: 12rem;
-  background: var(--fundo);
-  display: flex;
-  border: 2.5px solid var(--cor2);
-  border-radius: 5%;
-  border-top-right-radius: 15%;
-  transition: all .2s;
-  flex-direction: column;
-}
-.perfil-navbar-opened button{
-  margin-left: 65%;
-  margin-top: .5rem;
-  transition: all .1s;
-  border: 2.5px solid var(--cor1);
-
-}
-.perfil-navbar-opened span,.perfil-navbar-opened a{
-  color: #7F5AF0;
-  align-self: center;
-  margin-top: 1rem;
-  transition: all .1s;
 }
 /* --NAVBAR HOVER-- */
 
@@ -135,11 +91,43 @@ main{
   display:flex;
   flex-direction:row;
 }
+/* --usuarios-- */
+.navegacao{
+  position: absolute;
+  display: flex;
+  margin-top: 7rem;
+  
+}
+.usuarios{
+  display: flex;
+  margin-left: 5rem;
+  border-radius:.5rem;
+  height: 5rem;
+  text-decoration: none;
+  color: black;
+  border: #2CB67D 1px solid ;
+  align-items: center;
+  background-color: var(--fundo);
+  cursor: pointer;
+}
+.usuarios:hover{
+  box-shadow: 1px -2px 8px 2px rgba(117, 117, 117, 0.2);
+  transition: all 0.3s ease;
+}
+.usuarios h1{
+  align-self: center;
+  margin-left: 1.5rem;
+  font: 600 20px 'Roboto',sans-serif;
+}
+.usuarios img{
+  width: 60px;
+  height: 60px;
+}
 /* --Produtos-- */
 .produtos{
   width:65%;
   margin-top: 10rem;
-  margin-left:5rem;
+
 }
 .produto{
   display:flex;
@@ -148,6 +136,7 @@ main{
   border-radius:.5rem;
   margin-bottom:5rem;
   height:15rem;
+  width: 65rem;
 }
 .prodIMG{
 width:10rem;
@@ -163,7 +152,8 @@ justify-content:center;
 background:var(--cor2);
 border-top-left-radius:.5rem;
 border-top-right-radius:.5rem;
-
+font: 600 20px 'Roboto',sans-serif;
+color: var(--fundo);
 }
 .corpo{
   width:100%;
@@ -171,7 +161,8 @@ border-top-right-radius:.5rem;
   flex-direction:row;
   margin-top:1rem;
   margin-bottom:1rem;
-  background:var(--fundo)
+  background:var(--fundo);
+  font: 500 15px 'Roboto',sans-serif;
 }
 .descricao{
 margin-left:4rem;
@@ -186,35 +177,92 @@ font-family: 'Reem Kufi Fun', sans-serif;
 }
 .botaocomprar{
   align-self:center;
-  margin-left:10rem;
+  display: flex;
 }
-.alugar{
-  width: 10rem;
-  height: 2rem;
+.editar{
+  width: 5rem;
+  height: 5rem;
   align-self: center;
-  background:var(--cor3);
-  border-radius: 0.2rem;
+  background:var(--cor2);
+  border-radius: 100%;
   color: var(--fundo);
   transition: all 0.3s ease;
   border: none;
   cursor:pointer;
 }
-.alugar:hover{
-  box-shadow: 1px 1px 8px 1px var(--cor3);
+.excluir{
+  width: 2.5rem;
+  height: 2.5rem;
+  background:red;
+  border-radius: 100%;
+  color: var(--fundo);
+  transition: all 0.3s ease;
+  border:none;
+  cursor:pointer;
+}
+.editar img{
+  width: 35px;
+  height: 35px;
+}
+.editar:hover{
+  box-shadow: 1px 1px 8px 1px #2CB67D;
   transition: all 0.3s ease;
 }
-.compras{
+.excluir:hover{
+  box-shadow: 1px 1px 8px 1px red;
+  transition: all 0.3s ease;
+}
+
+/* --Adicionar produto--*/
+
+.adicionar{
   position:sticky;
+  display: flex;
+  flex-direction: column;
   background-color:var(--fundo);
   width:25rem;
-  height:35rem;
   margin-top: 10rem;
-  margin-left:6rem;
+  margin-left:10rem;
+  align-items: center;
   border-radius:.5rem;
   box-shadow: 1px -2px 8px 2px rgba(0,0,0,0.2);
   border: 3px solid rgba(0, 0, 0, 0.133);
 }
-.compras .titulo{
+.titulo{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.titulo h2{
+  margin-top: 1.5rem;
+  font: 600 20px 'Roboto',sans-serif;
 
 }
+.titulo .novoproduto {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  font: 600 15px 'Roboto',sans-serif;
+}
+.adicionar img{
+width: 60px;
+height: 60px;
+}
+.adicionaritem{
+margin-left: 1rem;
+width: 60px;
+height: 60px;
+border-radius:100%;
+border: none;
+cursor: pointer;
+}
+.adicionaritem:hover{
+  box-shadow: 1px 1px 8px 1px var(--cor3);
+  transition: all 0.3s ease;
+}
+
+/* ---- */
+/* --FOOTER-- */
+/* --FOOTER-- */
 /* --FOOTER-- */

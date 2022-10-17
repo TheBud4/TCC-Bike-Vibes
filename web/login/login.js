@@ -10,21 +10,26 @@ async function logar(){
     headers: {
         'Content-Type': 'application/json;charset=utf-8'
       },
-    body:JSON.stringify(data)});
-  
+    body:JSON.stringify(data)
+  });
+  console.log(data);
   fetchRes.then(async (res)=>{
     var status = await res.text()
     if(status == 'OK'){
         location.href = '../Logado/Usuario/Main/main-page.html'
     }
-    else{
+    if (status == 'ADM') {
+      location.href = '../Logado/Admin/Products/products.html'
+    }
+    if(status == 'NO'){
         function warning(){ 
-            const divContainer = document.querySelector('.container')
+            const divAlert = document.querySelector('.alert')
                 const message = `<span class='alert'>nome ou senha incorretos</span>`
-                divContainer.innerHTML = message 
+                divAlert.innerHTML =  message 
                 }
-                warning()
-                
+          warning()
+          
+         
     }
 })
 }
