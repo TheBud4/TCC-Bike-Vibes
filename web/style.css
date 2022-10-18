@@ -267,4 +267,30 @@
   .footer .social a:hover {
     transform: translateY(-8px);
   }
-  
+  /* --RESPONSIVIDADE-- */
+
+
+
+/* Para celular: */
+
+@media only screen and (max-width: 600px){
+
+}
+
+/* Para tablet: */
+
+@media only screen and (max-width: 768px){
+
+}
+
+/* Para notebook: */
+
+@media only screen and (max-width: 992px){
+
+}
+
+/* Para pc: */
+
+@media only screen and (max-width: 1200px){
+
+}
