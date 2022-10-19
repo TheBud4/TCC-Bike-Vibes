@@ -108,3 +108,30 @@ h2{
   font:0.9rem 'Roboto', sans-serif;
   align-self: center;
 }
+
+/* --RESPONSIVIDADE-- */
+
+
+/* Para celular: */
+
+@media only screen and (max-width: 600px){
+
+}
+
+/* Para tablet: */
+
+@media only screen and (max-width: 768px){
+
+}
+
+/* Para notebook: */
+
+@media only screen and (max-width: 992px){
+
+}
+
+/* Para pc: */
+
+@media only screen and (max-width: 1200px){
+
+}
