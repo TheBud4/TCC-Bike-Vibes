@@ -2,6 +2,7 @@ import { PrismaClient} from "@prisma/client"
 import  express  from "express"
 import { body,validationResult } from "express-validator"
 import cors from 'cors'
+import { copyFile } from "fs"
 
 
 const app = express()
@@ -13,6 +14,7 @@ app.use(express.json())
 const prisma = new PrismaClient()
 
 // LOGIN
+
 app.post('/user', async (req,res)=>{
     var Bemail= req.body.email
     var Bsenha= req.body.senha
@@ -38,7 +40,7 @@ app.post('/user', async (req,res)=>{
             if(BDadm == true){
         return res.send('ADM').status(200)
             }
-        return res.send('OK').status(200)
+        return res.send('OK').status(200).redirect('/user')
         
     }else{
         return res.send('NO').status(400)
@@ -49,7 +51,23 @@ app.post('/user', async (req,res)=>{
     }
         
 })
-
+app.get('/user', async (req,res)=>{
+    let Bemail= req.body.email
+    const usuario = await prisma.usuario.findFirst({
+        select:{
+        id:true,
+        nome:true,
+        senha:true,
+        CPF:true,
+        email:true,
+        Padm:true,
+        },
+        where:{
+            email:Bemail
+        }
+      })
+        return res.json(usuario)
+})
 
 //CADASTRO
 app.post('/user/register',[
@@ -67,16 +85,18 @@ app.post('/user/register',[
         return res.status(400).json({errors: errors.array()})
     }else{
     const body = req.body
+    const cpf =  Math.floor(Math.random() * 1000000000 + 1)
+    
     const usuario = await prisma.usuario.create({
         data:{
         nome: body.nome,
         senha:body.senha,
         email:body.email,
-        CPF:'',
+        CPF:cpf.toString(),
         Padm:false,
         }
       })
-        return res.status(201).send('OK').json(usuario)
+        return res.status(201).send('OK')
   }});
 app.get('/validation',async(req: express.Request,res:express.Response) => {
         const usuario = await prisma.usuario.findMany({
@@ -107,11 +127,6 @@ app.post('/user/bikes', async(req,res)=>{
     return res.json(historico)
 })
 
-
-
-
-
-
 //historico de compras
 
 app.post('/user/historico', async(req,res)=>{
@@ -124,7 +139,7 @@ app.post('/user/historico', async(req,res)=>{
 
 //PRODUTOS
 
-app.post('/bikes',async(req,res)=>{
+app.post('/bikes/criar',async(req,res)=>{
   const body = req.body
 
   const produtos = await prisma.produtos.create({
@@ -175,4 +190,6 @@ app.get('/admin',(req,res)=>{
 
 app.listen(3333,() =>{
     console.log('Server ta on na porta 3333');
+
 })
+

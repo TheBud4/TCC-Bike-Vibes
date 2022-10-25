@@ -17,6 +17,7 @@ async function logar(){
     var status = await res.text()
     if(status == 'OK'){
         location.href = '../Logado/Usuario/Main/main-page.html'
+        
     }
     if (status == 'ADM') {
       location.href = '../Logado/Admin/Products/products.html'

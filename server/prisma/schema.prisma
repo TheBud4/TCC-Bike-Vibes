@@ -8,13 +8,14 @@ datasource db {
 }
 
 model usuario {
-  id        Int      @id @default(autoincrement())
-  nome      String
-  CPF       String   @unique
-  email     String   @unique
-  senha     String
-  Padm      Boolean
-  
+  id       Int     @id @default(autoincrement())
+  nome     String
+  CPF      String  @unique
+  email    String  @unique
+  senha    String
+  telefone String
+  Padm     Boolean
+
   aluguel   aluguel[]
   IDUsuario nota[]
 }
@@ -28,13 +29,14 @@ model aluguel {
 }
 
 model produtos {
-  id         Int      @id @default(autoincrement())
-  nome       String
-  descricao  String
-  prodIMG    String
-  modelo     String
-  criacao    DateTime @default(now())
-  IDProdutos nota[]
+  id        Int      @id @default(autoincrement())
+  nome      String
+  preco     Int
+  descricao String
+  prodIMG   String
+  modelo    String
+  criacao   DateTime @default(now())
+  IDProduto nota[]
 }
 
 model nota {
@@ -42,6 +44,7 @@ model nota {
   emissao    DateTime @default(now())
   vencimento DateTime
   devolucao  DateTime
+  preco      Int
   IDUsuario  Int
   IDAluguel  Int
   IDProduto  Int

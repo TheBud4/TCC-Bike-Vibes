@@ -1,11 +1,13 @@
-const divProdutos = document.querySelector('.produtos')
+
+
+const divProdutos = document.querySelector('.informacoes')
 async function getProduto(){
-  const res = await fetch('http://localhost:3333/bikes')
-  const products = await res.json()
-  mostraProdutos(products)
+  const res = await fetch('http://localhost:3333/user')
+  const usuario = await res.json()
+  mostraUsuario(usuario)
  }
-  function mostraProdutos(products){
-    products.forEach(product => {
+  function mostraUsuario(usuario){
+    usuario.forEach(product => {
       const produtoHTML = `
       <div class="produto">
       <div class="modelos"><span class = modelo>${product.modelo}</span></div>
@@ -16,7 +18,7 @@ async function getProduto(){
         <span class = desc>${product.descricao}</span>
         </div>
         <div class="botaocomprar">
-        <span class = desc>${product.preco}</span>
+          <button class="alugar" onclick="alugarBike()">Reservar</button>
         </div>
         </div>
     </div>
