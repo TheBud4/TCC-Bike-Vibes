@@ -5,6 +5,7 @@ CREATE TABLE "usuario" (
     "CPF" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "senha" TEXT NOT NULL,
+    "telefone" TEXT NOT NULL,
     "Padm" BOOLEAN NOT NULL
 );
 
@@ -20,6 +21,7 @@ CREATE TABLE "aluguel" (
 CREATE TABLE "produtos" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "nome" TEXT NOT NULL,
+    "preco" TEXT NOT NULL,
     "descricao" TEXT NOT NULL,
     "prodIMG" TEXT NOT NULL,
     "modelo" TEXT NOT NULL,
@@ -32,6 +34,7 @@ CREATE TABLE "nota" (
     "emissao" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "vencimento" DATETIME NOT NULL,
     "devolucao" DATETIME NOT NULL,
+    "preco" TEXT NOT NULL,
     "IDUsuario" INTEGER NOT NULL,
     "IDAluguel" INTEGER NOT NULL,
     "IDProduto" INTEGER NOT NULL,

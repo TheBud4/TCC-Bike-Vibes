@@ -29,7 +29,52 @@ async function getProduto(){
   function alugarBike(){
     
   }
-  function addProduto() {
-    
+  async function addProduto() {
+    var nome = document.getElementById('nome').value
+    var preco = document.getElementById('preco').value
+    var modelo = document.getElementById('modelo').value
+    var prodIMG = document.getElementById('prodIMG').value
+    var descricao = document.getElementById('descricao').value
+    var data = {
+        nome,
+        preco,
+        modelo,
+        prodIMG,
+        descricao
+    }
+  var fetchRes = fetch('http://localhost:3333/bikes/criar',{
+    method:'POST',
+    headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+    body:JSON.stringify(data)
+  });
+  fetchRes.then(async (res)=>{
+    var status = await res.text()
+    console.log(status);
+    if(status == 'OK'){
+      function warning(){ 
+        const divAlert = document.querySelector('.alert')
+            const message = `<span class='alert'>Produto criado com sucesso</span>`
+            divAlert.innerHTML =  message 
+            }
+      warning()
+    }
+    else{
+        function warning(){ 
+            const divAlert = document.querySelector('.alert')
+                const message = `<span class='alert'>Produto não criado</span>`
+                divAlert.innerHTML =  message 
+                }
+          warning()
+          
+         
+    }
+})
   }
+  function modalAddProduto() {
+    const navbar= document.getElementById("modal")
+    navbar.classList.toggle("modal-add-produto")
+    navbar.classList.toggle("modal-add-produto-opened")
+}
  getProduto()

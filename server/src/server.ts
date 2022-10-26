@@ -2,7 +2,7 @@ import { PrismaClient} from "@prisma/client"
 import  express  from "express"
 import { body,validationResult } from "express-validator"
 import cors from 'cors'
-import { copyFile } from "fs"
+
 
 
 const app = express()
@@ -61,6 +61,7 @@ app.get('/user', async (req,res)=>{
         CPF:true,
         email:true,
         Padm:true,
+        telefone:true
         },
         where:{
             email:Bemail
@@ -85,32 +86,21 @@ app.post('/user/register',[
         return res.status(400).json({errors: errors.array()})
     }else{
     const body = req.body
-    const cpf =  Math.floor(Math.random() * 1000000000 + 1)
+    const x =  Math.floor(Math.random() * 1000000000 + 1)
     
     const usuario = await prisma.usuario.create({
         data:{
         nome: body.nome,
         senha:body.senha,
         email:body.email,
-        CPF:cpf.toString(),
+        CPF:x.toString(),
         Padm:false,
+        telefone:'',
         }
       })
         return res.status(201).send('OK')
   }});
-app.get('/validation',async(req: express.Request,res:express.Response) => {
-        const usuario = await prisma.usuario.findMany({
-            select:{
-            id:true,
-            nome:true,
-            senha:true,
-            CPF:true,
-            email:true,
-            Padm:true,
-            }
-          })
-            return res.json(usuario)
-});
+
   //carrinho
 
 app.post('/user/bikes', async(req,res)=>{
@@ -148,9 +138,10 @@ app.post('/bikes/criar',async(req,res)=>{
       descricao:body.descricao,
       prodIMG:body.prodIMG,
       modelo:body.modelo,
+      preco:body.preco,
     }
   })
-  return res.status(201).json(produtos)
+  return res.status(201).send('OK')
 })
 
 app.get('/bikes',async(req,res)=>{
@@ -161,7 +152,8 @@ app.get('/bikes',async(req,res)=>{
             descricao:true,
             prodIMG:true,
             modelo:true,
-            criacao:true
+            criacao:true,
+            preco:true
         }
     })
     return res.json(bikes)

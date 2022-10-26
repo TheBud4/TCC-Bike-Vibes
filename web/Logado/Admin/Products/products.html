@@ -15,7 +15,7 @@
     <!-- --FONTS-- -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;Reem+Kufi+Fun:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
       rel="stylesheet"
     />
     <title>Bike Vibes -Bikes</title>
@@ -25,10 +25,10 @@
     <header id="header">
       <div class="logo">
         <img
-            src="../../../assets/images/bike-vibe-B.svg"
-            alt="Logo da Bike vibes"
-          />
-          <span>Bike<span>Vibes</span></span>
+          src="../../../assets/images/bike-vibe-B.svg"
+          alt="Logo da Bike vibes"
+        />
+        <span>Bike<span>Vibes</span></span>
       </div>
       <div class="navbar"><a href="../../../index.html">Sair</a></div>
     </header>
@@ -36,43 +36,89 @@
     <div class="navegacao">
       <button onclick="" class="usuarios">
         <h1>Buscar todos os usuarios</h1>
-        <img src="../../../assets/icons/person.svg" alt="">
+        <img src="../../../assets/icons/person.svg" alt="" />
       </button>
 
       <button onclick="" class="usuarios">
         <h1>Adicionar administrador</h1>
-        <img src="../../../assets/icons/person.svg" alt="">
+        <img src="../../../assets/icons/person.svg" alt="" />
       </button>
     </div>
     <main>
-      <div class="produtos">
-      </div>
+      <div class="produtos"></div>
       <div class="adicionar">
         <div class="titulo">
           <h2>Modificando grade de produtos</h2>
-          <div class="novoproduto">Adicione um novo produto <button class="adicionaritem" onclick="addProduto()"><img src="../../../assets/icons/PNG/plus.png" alt="adicionar"></button></div>
+          <div class="novoproduto">
+            Adicione um novo produto
+            <button class="adicionaritem" onclick="modalAddProduto()">
+              <img src="../../../assets/icons/PNG/plus.png" alt="adicionar" />
+            </button>
+          </div>
         </div>
       </div>
     </main>
     <!-- --MODAIS--  -->
-    <div class="modal-add-produto">
+    <div class="modal-add-produto" id="modal">
+      <h1>Adicione aqui seu produto</h1>
+      <span id="message"></span>
+      <form autocomplete="off">
+        <label>Nome:</label>
+        <input
+          type="text"
+          name="nome"
+          required="yes"
+          placeholder="Nome do produto:"
+          class="entrada"
+          id="nome"
+        />
+        <label>Preço:</label>
+        <input
+          type="text"
+          name="preco"
+          required="yes"
+          placeholder="Digite aqui o preço do produto:"
+          class="entrada"
+          id="preco"
+        />
+        <label>Modelo:</label>
+          <input
+            type="text"
+            class="entrada"
+            required="yes"
+            placeholder="Digite aqui o modelo do seu produto:"
+            name="modelo"
+            id="modelo"
+          />
+        <label>Imagem:</label>
+          <input
+            type="text"
+            class="entrada"
+            required="yes"
+            placeholder="Coloque aqui o link da imagem do seu produto:"
+            name="prodIMG"
+            id="prodIMG"
+          />
+        <label>Descrição:</label>
+          <input
+          type="text"
+          class="entrada"
+          required="yes"
+          placeholder="De uma descrição para o seu produto:"
+          name="descricao"
+          id="descricao"
+        />
 
+        <button class="button" onclick="addProduto()">Criar produto</button>
+      </form>
+      <button class="adicionaritem" onclick="modalAddProduto()">Sair</button>
     </div>
-    <div class="modal-add-adm">
-
-    </div>
-    <div class="modal-ver-usuarios">
-
-    </div>
-    <div class="modal-edit-produto">
-
-    </div>
-    <div class="aviso-excluir-produto">
-
-    </div>
+    <div class="modal-add-adm"></div>
+    <div class="modal-ver-usuarios"></div>
+    <div class="modal-edit-produto"></div>
+    <div class="aviso-excluir-produto"></div>
     <!-- --FOOTER-- -->
     <footer></footer>
-    <script src="../../components/navbarComponent.js"></script>
     <script src="../Products/products.js"></script>
   </body>
 </html>
