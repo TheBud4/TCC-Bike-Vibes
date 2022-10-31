@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <title>Bike Vibes -Bikes</title>
   </head>
   <body>
@@ -49,6 +50,10 @@
       <div class="adicionar">
         <div class="titulo">
           <h2>Modificando grade de produtos</h2>
+          <p>
+            Para adicionar um produto é muito facil!Basta clicar no botão de adicionar
+            preencher todos os campos e clicar em "criar produto" 
+          </p>
           <div class="novoproduto">
             Adicione um novo produto
             <button class="adicionaritem" onclick="modalAddProduto()">
@@ -60,6 +65,7 @@
     </main>
     <!-- --MODAIS--  -->
     <div class="modal-add-produto" id="modal">
+      <div class="modal-container">
       <h1>Adicione aqui seu produto</h1>
       <span id="message"></span>
       <form autocomplete="off">
@@ -102,17 +108,19 @@
         <label>Descrição:</label>
           <input
           type="text"
-          class="entrada"
+          class="entrada desc"
           required="yes"
           placeholder="De uma descrição para o seu produto:"
           name="descricao"
           id="descricao"
+          size="1"
         />
 
         <button class="button" onclick="addProduto()">Criar produto</button>
       </form>
-      <button class="adicionaritem" onclick="modalAddProduto()">Sair</button>
+      <button class="sair" onclick="modalAddProduto()">Sair</button>
     </div>
+  </div>
     <div class="modal-add-adm"></div>
     <div class="modal-ver-usuarios"></div>
     <div class="modal-edit-produto"></div>

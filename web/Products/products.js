@@ -8,15 +8,12 @@ async function getProduto(){
     products.forEach(product => {
       const produtoHTML = `
       <div class="produto">
-      <div class="modelos"><span class = modelo>${product.modelo}</span></div>
+      <img class="prodIMG" src="${product.prodIMG}" alt="bicicleta">
       <div class="corpo">
-        <img class="prodIMG" src="${product.prodIMG}" alt="">
         <div class="descricao">
-        <span class = nome>${product.nome}</span>
-        <span class = desc>${product.descricao}</span>
-        </div>
-        <div class="botaocomprar">
-        <span class = desc>${product.preco}</span>
+        <span class = "modelo">${product.modelo}</span>
+        <span class = "nome">${product.nome}</span>
+        <span class = "desc">${product.preco}</span>
         </div>
         </div>
     </div>

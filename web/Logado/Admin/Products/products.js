@@ -6,7 +6,8 @@ async function getProduto(){
  }
   function mostraProdutos(products){
     products.forEach(product => {
-      const produtoHTML = `
+      const produtoHTML = 
+      `
       <div class="produto">
       <div class="modelos"><span class = modelo>${product.modelo}</span></div>
       <div class="corpo">
@@ -16,8 +17,8 @@ async function getProduto(){
         <span class = desc>${product.descricao}</span>
         </div>
         <div class="botaocomprar">
-          <button class="editar" onclick="alugarBike()"><img src="../../../assets/icons/PNG/editar.png" alt="editar"></button>
-          <button class="excluir" onclick="alugarBike()"><img src="../../../assets/icons/x.svg" alt="excluir"></button>
+          <button class="editar" onclick="editarBike()"><img src="../../../assets/icons/PNG/editar.png" alt="editar"></button>
+          <button class="excluir" onclick="excluirBike()"><img src="../../../assets/icons/x.svg" alt="excluir" ></button>
         </div>
         </div>
     </div>
@@ -26,9 +27,14 @@ async function getProduto(){
     });
   }
 
-  function alugarBike(){
+  function editarBike(){
     
   }
+  function excluirBike(){
+    fetch('http://localhost:3333/bikes/:id',{
+    method:'DELETE',
+  })  	
+}
   async function addProduto() {
     var nome = document.getElementById('nome').value
     var preco = document.getElementById('preco').value

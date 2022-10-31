@@ -15,16 +15,17 @@
     <!-- --FONTS-- -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;Reem+Kufi+Fun:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
       rel="stylesheet"
     />
+
     <title>Bike Vibes -Bikes</title>
   </head>
   <body>
     <!-- --HEADER-- -->
     <header id="header">
       <div class="logo">
-        <a href="../Main/main-page.html"
+        <a href="../index.html"
           ><img
             src="../../../assets/images/bike-vibe-B.svg"
             alt="Logo da Bike vibes"
@@ -33,13 +34,17 @@
         </a>
       </div>
       <div class="navbar">
-        <div class="perfil" id="perfil-navbar">
-          <button onclick="navbarOnClick()" class="button-navbar">
-            <img src="../../../assets/icons/person.svg" alt="Perfil" />
-          </button>
-          <a href="../Perfil/perfil.html"><span>Perfil</span></a>
-          <a href="../../Main/Minhas-Compras/historico.html"><span>Historico</span></a>
-          <a href="../../../index.html"><span>Sair</span></a>
+        <div>
+          <a href="../index.html">Pagina inicial</a>
+        </div>
+        <div>
+          <a href="./Products/products.html">Produtos</a>
+        </div>
+        <div>
+          <a href="../login/login.html">Fazer Login</a>
+        </div>
+        <div>
+          <a href="../Cadastro/cadastro.html">Fazer Cadastro</a>
         </div>
       </div>
     </header>
@@ -47,15 +52,9 @@
     <main>
       <div class="produtos">
       </div>
-      <div class="compras">
-        <div class="titulo">
-          <h2>Suas Reservas</h2>
-        </div>
-      </div>
     </main>
     <!-- --FOOTER-- -->
     <footer></footer>
-    <script src="../../../components/navbarComponent.js"></script>
     <script src="../Products/products.js"></script>
   </body>
 </html>
