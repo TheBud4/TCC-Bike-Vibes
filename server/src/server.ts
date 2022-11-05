@@ -3,6 +3,7 @@ import express from "express";
 import { body, validationResult } from "express-validator";
 import cors from "cors";
 
+
 const app = express();
 
 app.use(cors());
@@ -155,16 +156,16 @@ app.get("/bikes", async (req, res) => {
   return res.json(bikes);
 });
 app.patch("/bikes", (req, res) => {});
-app.delete("/bikes/:id", async (req, res) => {
-  const body = req.body;
-  const bikes:any = await prisma.produtos.delete({
+app.delete("/bikes/delete", async (req, res) => {
+  const body = req.body
+   const Cid = parseInt(body.id, 10)
+   await prisma.produtos.delete({
     where: {
-     id: req.params.id,
+      id:Cid,
     },
-  });
-  return res.status(200).json(bikes);
+  })
+    return res.send('OK')
 });
-
 //FUNCIONARIO
 
 app.get("/admin", (req, res) => {});

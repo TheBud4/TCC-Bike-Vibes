@@ -48,18 +48,23 @@
     <main>
       <div class="produtos"></div>
       <div class="adicionar">
-        <div class="titulo">
+        <div class="container">
           <h2>Modificando grade de produtos</h2>
           <p>
             Para adicionar um produto é muito facil!Basta clicar no botão de adicionar
             preencher todos os campos e clicar em "criar produto" 
           </p>
+        
           <div class="novoproduto">
             Adicione um novo produto
             <button class="adicionaritem" onclick="modalAddProduto()">
-              <img src="../../../assets/icons/PNG/plus.png" alt="adicionar" />
+              <img class="addimg" src="../../../assets/icons/PNG/plus.png" alt="adicionar" />
             </button>
           </div>
+          <div class="editar-excluir">
+          <button class="editar" onclick="editarBike()">Editar item <img src="../../../assets/icons/PNG/editar.png" alt="editar"/></button>
+          <button class="excluir" onclick="modalExcluirItem()">Excluir item <img src="../../../assets/icons/x.svg" alt="excluir" /></button>
+        </div>
         </div>
       </div>
     </main>
@@ -122,9 +127,29 @@
     </div>
   </div>
     <div class="modal-add-adm"></div>
-    <div class="modal-ver-usuarios"></div>
+    <div class="modal-ver-usuarios">
+      <div class="modal-container">
+        
+      </div>
+    </div>
     <div class="modal-edit-produto"></div>
-    <div class="aviso-excluir-produto"></div>
+    <div class="modal-excluir-produto" id="modal-excluir">
+        <div class="modal-excluir-container">
+
+        <h1>Digite o produto que deseja excluir</h1>
+            <input
+            type="text"
+            class="entrada desc"
+            required="yes"
+            placeholder="Digite o id do produto:"
+            name="id"
+            id="id"
+          />
+      <span class="alert"></span>
+          <button class="button" onclick="excluirBike()">Excluir</button>
+        <button class="sair" onclick="modalExcluirItem()">Sair</button>
+      </div>
+    </div>
     <!-- --FOOTER-- -->
     <footer></footer>
     <script src="../Products/products.js"></script>

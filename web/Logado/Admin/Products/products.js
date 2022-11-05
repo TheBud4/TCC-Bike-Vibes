@@ -13,28 +13,62 @@ async function getProduto(){
       <div class="corpo">
         <img class="prodIMG" src="${product.prodIMG}" alt="">
         <div class="descricao">
-        <span class = nome>${product.nome}</span>
-        <span class = desc>${product.descricao}</span>
+        <span class = "nome">${product.nome}</span>
+        <span class = "desc">${product.descricao}</span>
+        <span class = "id"> Id do produto: ${product.id}</span>
         </div>
         <div class="botaocomprar">
-          <button class="editar" onclick="editarBike()"><img src="../../../assets/icons/PNG/editar.png" alt="editar"></button>
-          <button class="excluir" onclick="excluirBike()"><img src="../../../assets/icons/x.svg" alt="excluir" ></button>
+        <span class = "desc">${product.preco}</span>
         </div>
         </div>
     </div>
       `
       divProdutos.innerHTML = divProdutos.innerHTML + produtoHTML
     });
+    
   }
-
+  getProduto()
+  function modalExcluirItem(){
+    const navbar= document.getElementById("modal-excluir")
+    navbar.classList.toggle("modal-excluir-produto")
+    navbar.classList.toggle("modal-excluir-produto-opened")
+  }
+  function excluirBike(){
+    var id = document.getElementById('id').value
+    let data = {
+      id
+    }
+    var fetchRes = fetch('http://localhost:3333/bikes/delete',{
+    method:'DELETE',
+    headers:{'Content-Type': 'application/json;charset=utf-8'
+  },
+  body:JSON.stringify(data)
+})
+fetchRes.then(async (res)=>{
+  var status = await res.text()
+  console.log(status);
+  if(status == 'OK'){
+    function warning(){ 
+      const divAlert = document.querySelector('.alert')
+          const message = `<span class='alert'>Produto deletado com sucesso</span>`
+          divAlert.innerHTML =  message
+          }
+    warning()
+  }
+  else{
+      function warning(){ 
+          const divAlert = document.querySelector('.alert')
+              const message = `<span class='alert'>Produto não deletado</span>`
+              divAlert.innerHTML =  message
+              }
+        warning()
+  }
+})
+}
   function editarBike(){
     
   }
-  function excluirBike(){
-    fetch('http://localhost:3333/bikes/:id',{
-    method:'DELETE',
-  })  	
-}
+
   async function addProduto() {
     var nome = document.getElementById('nome').value
     var preco = document.getElementById('preco').value
@@ -83,4 +117,3 @@ async function getProduto(){
     navbar.classList.toggle("modal-add-produto")
     navbar.classList.toggle("modal-add-produto-opened")
 }
- getProduto()
