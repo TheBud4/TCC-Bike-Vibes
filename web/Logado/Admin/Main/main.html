@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- --FAVICON-- -->
+    <link
+      rel="shortcut icon"
+      href="../../../assets/icons/favicon.svg"
+      type="image/x-icon"
+    />
+    <!-- --CSS-- -->
+    <link rel="stylesheet" href="../Main/main.css" />
+    <!-- --FONTS-- -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+    <title>Bike Vibes - Pagina do Adm</title>
+  </head>
+  <body>
+    <!-- --HEADER-- -->
+    <header id="header">
+      <div class="logo">
+        <img
+          src="../../../assets/images/bike-vibe-B.svg"
+          alt="Logo da Bike vibes"
+        />
+        <span>Bike<span>Vibes</span></span>
+      </div>
+      <div class="navbar"><a href="../../../index.html">Sair</a></div>
+    </header>
+    <!-- --MAIN-- -->
+    <div class="navegacao">
+      <a href="../Users/usuarios.html" class="usuarios">
+        <h1>Buscar todos os usuarios</h1>
+        <img src="../../../assets/icons/person.svg" alt="" />
+      </a>
+    </div>
+    <main>
+      <div class="produtos"></div>
+      <div class="adicionar">
+        <div class="container">
+          <h2>Modificando grade de produtos</h2>
+          <p>
+            Para adicionar um produto é muito facil!Basta clicar no botão de
+            adicionar preencher todos os campos e clicar em "criar produto"
+          </p>
+
+          <div class="novoproduto">
+            Adicione um novo produto
+            <button class="adicionaritem" onclick="modalAddProduto()">
+              <img
+                class="addimg"
+                src="../../../assets/icons/PNG/plus.png"
+                alt="adicionar"
+              />
+            </button>
+          </div>
+          <div class="editar-excluir">
+            <button class="editar" onclick="editarBike()">
+              Editar item
+              <img src="../../../assets/icons/PNG/editar.png" alt="editar" />
+            </button>
+            <button class="excluir" onclick="modalExcluirItem()">
+              Excluir item
+              <img src="../../../assets/icons/x.svg" alt="excluir" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- --MODAIS--  -->
+    <div class="modal-add-produto" id="modal">
+      <div class="modal-container">
+        <h1>Adicione aqui seu produto</h1>
+        <span id="message"></span>
+        <form autocomplete="off">
+          <label>Nome:</label>
+          <input
+            type="text"
+            name="nome"
+            required="yes"
+            placeholder="Nome do produto:"
+            class="entrada"
+            id="nome"
+          />
+          <label>Preço:</label>
+          <input
+            type="text"
+            name="preco"
+            required="yes"
+            placeholder="Digite aqui o preço do produto:"
+            class="entrada"
+            id="preco"
+          />
+          <label>Modelo:</label>
+          <input
+            type="text"
+            class="entrada"
+            required="yes"
+            placeholder="Digite aqui o modelo do seu produto:"
+            name="modelo"
+            id="modelo"
+          />
+          <label>Imagem:</label>
+          <input
+            type="text"
+            class="entrada"
+            required="yes"
+            placeholder="Coloque aqui o link da imagem do seu produto:"
+            name="prodIMG"
+            id="prodIMG"
+          />
+          <label>Descrição:</label>
+          <input
+            type="text"
+            class="entrada desc"
+            required="yes"
+            placeholder="De uma descrição para o seu produto:"
+            name="descricao"
+            id="descricao"
+            size="1"
+          />
+
+          <button class="button" onclick="addProduto()">Criar produto</button>
+        </form>
+        <button class="sair" onclick="modalAddProduto()">Sair</button>
+      </div>
+    </div>
+    <div class="modal-edit-produto"></div>
+    <div class="modal-excluir-produto" id="modal-excluir">
+      <div class="modal-excluir-container">
+        <h1>Digite o produto que deseja excluir</h1>
+        <input
+          type="text"
+          class="entrada desc"
+          required="yes"
+          placeholder="Digite o id do produto:"
+          name="id"
+          id="id"
+        />
+        <span class="alert"></span>
+        <button class="button" onclick="excluirBike()">Excluir</button>
+        <button class="sair" onclick="modalExcluirItem()">Sair</button>
+      </div>
+    </div>
+    <!-- --FOOTER-- -->
+    <footer></footer>
+    <script src="../Main/main.js"></script>
+  </body>
+</html>

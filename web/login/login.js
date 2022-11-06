@@ -20,7 +20,7 @@ async function logar(){
         
     }
     if (status == 'ADM') {
-      location.href = '../Logado/Admin/Products/products.html'
+      location.href = '../Logado/Admin/Main/main.html'
     }
     if(status == 'NO'){
         function warning(){ 

@@ -72,6 +72,7 @@ form .button{
   color: var(--fundo);
   transition: all 0.3s ease;
   border: none;
+  cursor: pointer;
 }
 .container h1{
   align-self: center;

@@ -12,10 +12,12 @@ async function getProduto(){
       <div class="corpo">
         <img class="prodIMG" src="${product.prodIMG}" alt="">
         <div class="descricao">
-        <span class = nome>${product.nome}</span>
-        <span class = desc>${product.descricao}</span>
+        <span class = "nome">${product.nome}</span>
+        <span class = "desc">${product.descricao}</span>
         </div>
         <div class="botaocomprar">
+        <span class = "preco">${product.preco}</span>
+      
           <button class="alugar" onclick="alugarBike()">Reservar</button>
         </div>
         </div>

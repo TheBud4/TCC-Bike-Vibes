@@ -39,17 +39,14 @@ app.post("/user", async (req, res) => {
       if (BDadm == true) {
         return res.send("ADM").status(200);
       }
-      return res.send("OK").status(200).redirect("/user");
-    } else {
-      return res.send("NO").status(400);
+      return res.send("OK").status(200);
     }
-  } else {
-    res.send("NO").status(404);
+      return res.send("NO").status(400);
   }
+    res.send("NO").status(404);
 });
-app.get("/user", async (req, res) => {
-  let Bemail = req.body.email;
-  const usuario = await prisma.usuario.findFirst({
+app.get("/user/get", async (req, res) => {
+  const usuario = await prisma.usuario.findMany({
     select: {
       id: true,
       nome: true,
@@ -58,12 +55,9 @@ app.get("/user", async (req, res) => {
       email: true,
       Padm: true,
       telefone: true,
-    },
-    where: {
-      email: Bemail,
-    },
+    }
   });
-  return res.json(usuario);
+  return res.json(usuario).status(400);
 });
 
 //CADASTRO
@@ -166,9 +160,6 @@ app.delete("/bikes/delete", async (req, res) => {
   })
     return res.send('OK')
 });
-//FUNCIONARIO
-
-app.get("/admin", (req, res) => {});
 
 app.listen(3333, () => {
   console.log("Server ta on na porta 3333");

@@ -102,58 +102,22 @@ body {
   width: 100%;
 }
 /* --MAIN-- */
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 /* --Produtos-- */
 .produtos {
   display: flex;
+  position: relative;
+  right: auto;
   flex-direction: row;
   justify-content: space-evenly;
   padding: 10rem;
+  flex-wrap: wrap;
+  width: 90rem;
 }
-/*
-.produto{
-  display:flex;
-  flex-direction:column;
-  box-shadow: 1px -2px 8px 2px rgba(0,0,0,0.2);
-  border-radius:.5rem;
-  margin-bottom:5rem;
-  height:15rem;
-}
-.prodIMG{
-width:10rem;
-height:10rem;
-margin-left:5rem;
-}
-.modelos{
-width:100%;
-height:2rem;
-display:flex;
-align-items:center;
-justify-content:center;
-background:var(--cor2);
-border-top-left-radius:.5rem;
-border-top-right-radius:.5rem;
-
-}
-.corpo{
-  width:100%;
-  display:flex;
-  flex-direction:row;
-  margin-top:1rem;
-  margin-bottom:1rem;
-  background:var(--fundo)
-}
-.descricao{
-margin-left:4rem;
-margin-top:1rem;
-display:flex;
-flex-direction:column;
-width:35rem;
-font-family: 'Reem Kufi Fun', sans-serif;
-}
-.desc{
-  margin-top:1.5rem;
-}
-*/
 .produto {
   display: flex;
   align-items: center;
@@ -162,6 +126,13 @@ font-family: 'Reem Kufi Fun', sans-serif;
   margin-bottom: 5rem;
   height: 15rem;
   width: 15rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+}
+.produto:hover{
+    box-shadow: 1px 1px 8px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 .prodIMG {
   width: 100%;
@@ -176,8 +147,8 @@ font-family: 'Reem Kufi Fun', sans-serif;
   border-top-right-radius: 0.5rem;
 }
 .corpo {
-position: fixed;
-background: rgba(0, 0, 0, 0.5);
+position: absolute;
+background: rgba(0, 0, 0, 0.4);
 height: 15rem;
 width: 15rem;
 border-radius: 0.5rem;

@@ -20,7 +20,7 @@ async function Cadastro(){
     var status = await res.text()
     console.log(status);
     if(status == 'OK'){
-        location.href = '../login/login.html'
+        location.href('../login/login.html') 
         alert('cadastro')
     }
     else{

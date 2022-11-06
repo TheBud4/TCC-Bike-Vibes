@@ -7,6 +7,7 @@ async function getProduto(){
   function mostraProdutos(products){
     products.forEach(product => {
       const produtoHTML = `
+      <a href="../login/login.html">
       <div class="produto">
       <img class="prodIMG" src="${product.prodIMG}" alt="bicicleta">
       <div class="corpo">
@@ -17,6 +18,7 @@ async function getProduto(){
         </div>
         </div>
     </div>
+    </a>
       `
       divProdutos.innerHTML = divProdutos.innerHTML + produtoHTML
     });

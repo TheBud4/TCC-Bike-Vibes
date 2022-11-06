@@ -1,0 +1,138 @@
+/* --RESET-- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* --Variaveis-- */
+:root {
+  --cor1: #7f5af0;
+  --cor2: #2cb67d;
+  --cor3: rgb(42, 141, 255);
+  --fundo: white;
+  --textcolor: black;
+}
+/* --BODY-- */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --navegacao-- */
+.navegacao {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 7rem;
+  justify-content: center;
+  align-items: center;
+}
+.add-adm {
+  display: flex;
+  border-radius: 0.5rem;
+  height: 5rem;
+  text-decoration: none;
+  color: black;
+  border: #2cb67d 1px solid;
+  align-items: center;
+  background-color: var(--fundo);
+  cursor: pointer;
+}
+.left{
+  margin-left: 5rem;
+}
+.add-adm:hover {
+  box-shadow: 1px -2px 8px 2px rgba(117, 117, 117, 0.2);
+  transition: all 0.3s ease;
+}
+.add-adm h1 {
+  align-self: center;
+  margin-left: 1.5rem;
+  font: 600 20px "Roboto", sans-serif;
+}
+.add-adm img {
+  width: 60px;
+  height: 60px;
+}
+/* --usuarios-- */
+.usuarios{
+  display: grid;
+  grid-area: 10rem;
+  grid-row: 3;
+}
+.usuario{
+
+}
+/* --modal--  */
+.modal-add-adm{
+  visibility: hidden;
+}
+.modal-add-adm-opened{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-add {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--fundo);
+  width: 35rem;
+  height: 30rem;
+  border-radius: 1.5rem;
+  box-shadow: 1px -2px 20px -2px rgba(0, 0, 0, 0.37);
+  border: 2px solid rgba(0, 0, 0, 0.133);
+  top: 8rem;
+  align-items: center;
+  backdrop-filter: var(--cor1);
+}
+.modal-add-adm-opened h1 {
+  font: 500 1.5rem "Roboto", sans-serif;
+  margin-top: 5rem;
+}
+.button {
+  width: 10rem;
+  height: 2rem;
+  align-self: center;
+  background: var(--cor2);
+  border-radius: 0.2rem;
+  color: var(--fundo);
+  transition: all 0.3s ease;
+  border: none;
+  margin-top: 2.5rem;
+  cursor: pointer;
+}
+.entrada {
+  background: none;
+  margin-top: 5rem;
+  border-radius: 0.2rem;
+  font: 500 13px "Roboto", sans-serif;
+  block-size: 1.5rem;
+  height: 2rem;
+  width: 16rem;
+  border: 1px #a1a1a1 solid;
+  animation: none;
+  outline: 0;
+}
+.sair {
+  margin-top: 1rem;
+  width: 10rem;
+  height: 2rem;
+  border-radius: 0.2rem;
+  border: none;
+  cursor: pointer;
+}
+.sair:hover {
+  box-shadow: 1px 1px 8px 1px rgb(150, 150, 150);
+  transition: all 0.3s ease;
+}
+.button:hover {
+  box-shadow: 1px 1px 8px 1px var(--cor2);
+  transition: all 0.3s ease;
+}
