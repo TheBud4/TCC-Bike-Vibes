@@ -31,20 +31,25 @@ app.post("/user", async (req, res) => {
       senha: Bsenha,
     },
   });
-  if (!!user) {
+  if (!(!user)) {
     let BDemail: string = user.email;
     let BDsenha: string = user.senha;
     let BDadm: boolean = user.Padm;
-    if (Bemail == BDemail && Bsenha == BDsenha) {
+    if ((Bemail == BDemail) && (Bsenha == BDsenha)) {
       if (BDadm == true) {
-        return res.send("ADM").status(200);
+        return res.send("ADM");
       }
-      return res.send("OK").status(200);
+
+      return res.send("OK");
     }
-      return res.send("NO").status(400);
+      return res.send({"resposta":"NO"}).status(400);
+  }else{
+    return res.send({"resposta":"NO"}).status(404)
   }
-    res.send("NO").status(404);
 });
+
+//listagem de usuarios
+
 app.get("/user/get", async (req, res) => {
   const usuario = await prisma.usuario.findMany({
     select: {
@@ -98,6 +103,40 @@ app.post(
   }
 );
 
+//Definir usuario adm
+
+app.patch("/user/adm", async (req, res) => {
+  const body = req.body
+  const Cid = parseFloat(body.id)
+
+  
+  await prisma.usuario.update({
+    where: {
+      id: Cid,
+    },
+    data: {
+      Padm:true,
+    },
+ })
+   return res.send('OK')
+});
+
+//remover usuario adm
+
+app.patch("/user/adm/remove", async (req, res) => {
+  const body = req.body
+  const Cid = parseInt(body.id, 10)
+  
+  await prisma.usuario.update({
+    where: {
+      id: Cid,
+    },
+    data: {
+      Padm:false,
+    },
+ })
+   return res.send('OK')
+});
 //carrinho
 
 app.post("/user/bikes", async (req, res) => {
@@ -121,7 +160,8 @@ app.post("/user/historico", async (req, res) => {});
 //PRODUTOS
 
 app.post("/bikes/criar", async (req, res) => {
-  const body = req.body;
+  const body = req.body
+  const Bpreco = parseFloat(body.preco)
 
   const produtos = await prisma.produtos.create({
     data: {
@@ -129,13 +169,14 @@ app.post("/bikes/criar", async (req, res) => {
       descricao: body.descricao,
       prodIMG: body.prodIMG,
       modelo: body.modelo,
-      preco: body.preco,
+      preco: Bpreco,
     },
   });
   return res.status(201).send("OK");
 });
 
 app.get("/bikes", async (req, res) => {
+
   const bikes = await prisma.produtos.findMany({
     select: {
       id: true,

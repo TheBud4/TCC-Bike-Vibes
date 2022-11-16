@@ -80,7 +80,6 @@
     <div class="modal-add-produto" id="modal">
       <div class="modal-container">
         <h1>Adicione aqui seu produto</h1>
-        <span id="message"></span>
         <form autocomplete="off">
           <label>Nome:</label>
           <input
@@ -128,7 +127,7 @@
             id="descricao"
             size="1"
           />
-
+          <span id="alert"></span>
           <button class="button" onclick="addProduto()">Criar produto</button>
         </form>
         <button class="sair" onclick="modalAddProduto()">Sair</button>

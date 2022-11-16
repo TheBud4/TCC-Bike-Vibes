@@ -24,19 +24,22 @@ model aluguel {
   id        Int      @id @default(autoincrement())
   data      DateTime @default(now())
   idUsuario Int      @unique
+  idProduto Int      @unique
   UsuarioID usuario  @relation(fields: [idUsuario], references: [id])
+  ProdutoID produtos @relation(fields: [idProduto], references: [id])
   IDAluguel nota[]
 }
 
 model produtos {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   nome      String
-  preco     String
+  preco     Decimal   @default(10.2)
   descricao String
   prodIMG   String
   modelo    String
-  criacao   DateTime @default(now())
+  criacao   DateTime  @default(now())
   IDProduto nota[]
+  IdProduto aluguel[]
 }
 
 model nota {

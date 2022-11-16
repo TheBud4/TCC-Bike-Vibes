@@ -20,7 +20,7 @@ function mostraProdutos(products) {
         <span class = "id"> Id do produto: ${product.id}</span>
         </div>
         <div class="botaocomprar">
-        <span class = "desc">${product.preco}</span>
+        <span class = "desc">R$ ${product.preco}</span>
         </div>
         </div>
     </div>

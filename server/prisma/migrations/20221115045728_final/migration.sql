@@ -14,14 +14,16 @@ CREATE TABLE "aluguel" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "data" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "idUsuario" INTEGER NOT NULL,
-    CONSTRAINT "aluguel_idUsuario_fkey" FOREIGN KEY ("idUsuario") REFERENCES "usuario" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    "idProduto" INTEGER NOT NULL,
+    CONSTRAINT "aluguel_idUsuario_fkey" FOREIGN KEY ("idUsuario") REFERENCES "usuario" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "aluguel_idProduto_fkey" FOREIGN KEY ("idProduto") REFERENCES "produtos" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
 CREATE TABLE "produtos" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "nome" TEXT NOT NULL,
-    "preco" TEXT NOT NULL,
+    "preco" DECIMAL NOT NULL DEFAULT 10.2,
     "descricao" TEXT NOT NULL,
     "prodIMG" TEXT NOT NULL,
     "modelo" TEXT NOT NULL,
@@ -51,3 +53,6 @@ CREATE UNIQUE INDEX "usuario_email_key" ON "usuario"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "aluguel_idUsuario_key" ON "aluguel"("idUsuario");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "aluguel_idProduto_key" ON "aluguel"("idProduto");

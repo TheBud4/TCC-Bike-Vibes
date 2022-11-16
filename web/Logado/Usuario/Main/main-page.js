@@ -25,3 +25,6 @@ var i = setInterval(function () {
   document.getElementById("loading").style.display = "none";
   document.getElementById("content").style.display = "inline";
 }, 4200);
+
+let user = localStorage.getItem("Usuario")
+console.log(user);

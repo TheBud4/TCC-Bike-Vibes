@@ -27,15 +27,14 @@
   <body>
     <div class="navegacao">
       <button onclick="modalAddAdm()" class="add-adm">
-        <h1>Adicionar Administrador</h1>
-        <img src="../../../assets/icons/person.svg" alt="" />
+        <h1>Adicionar/Remover Administrador</h1>
+        <img src="../../../assets/icons/person_add.svg" alt="" />
       </button>
       <a href="../Main/main.html" class="add-adm left">
         <h1>Voltar ao Menu Principal</h1>
         <img src="../../../assets/icons/home.svg" alt="" />
       </a>
     </div>
-
       <div class="modal-add-adm" id="modal">
         <div class="modal-add">
           <h1>Digite o id do usuario que deseja tornar adm</h1>
@@ -47,8 +46,22 @@
             name="id"
             id="id"
           />
-          <span class="alert"></span>
-          <button class="button" onclick="adm()">Confirmar</button>
+          <span class="alert"></span> 
+          <button class="button" onclick="addAdm()">Confirmar</button>
+          <button class="sair" onclick="modalAddAdm()">Sair</button>
+        </div>
+        <div class="modal-remove">
+          <h1>Digite o id para remover os direitos de Adm</h1>
+          <input
+            type="text"
+            class="entrada desc"
+            required="yes"
+            placeholder="Digite o id do usuario:"
+            name="idremove"
+            id="idremove"
+          />
+          <span class="message"></span> 
+          <button class="button" onclick="removeAdm()">Confirmar</button>
           <button class="sair" onclick="modalAddAdm()">Sair</button>
         </div>
         </div>

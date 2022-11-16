@@ -179,7 +179,8 @@ justify-content: center;
 
 /* Para celular: */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) { 
+  
 }
 
 /* Para tablet: */

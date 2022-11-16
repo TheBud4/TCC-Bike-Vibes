@@ -50,6 +50,28 @@
       <div class="produtos"></div>
       <div class="compras">
         <span class="titulo">Suas Reservas</span>
+        <table id="listTable" class="listTable"></table>
+       <span class="textototal">Total:  R$  <div class="total" id="total"></div></span>
+        <div class="comprar">
+          <button onclick="modalAluguel()">Efetuar aluguel</button>
+        </div>
+      </div>
+      <!-- --MODAL-- -->
+      <div class="modal-comprar" id="modal">
+        <div class="modal-comprar-container">
+          <h1>Obrigado pela preferencia!</h1>
+          <div class="textototal" id="total-final">
+          </div>
+          <div class="pix">
+            <span>Leia o codigo pix no aplicativo do seu banco</span>
+            <img src="../../../assets/images/pix-qrcode.png" alt="asdasdasd" />
+          </div>
+          <div class="baixo">
+          <a href="https://nubank.com.br/pagar/s2k2f/g1n2TBc7Cb"
+            >🡲 Ou pague por aqui 🡰</a>
+          <button onclick="confirmaAluguel()" class="botao-confirmar">Confirmar</button>
+        </div>
+        </div>
       </div>
     </main>
     <!-- --FOOTER-- -->
