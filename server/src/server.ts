@@ -2,14 +2,14 @@ import { PrismaClient } from "@prisma/client";
 import express from "express";
 import { body, validationResult } from "express-validator";
 import cors from "cors";
-
+import bodyParser from "express"
 
 const app = express();
 
 app.use(cors());
 
 app.use(express.json());
-
+app.use(bodyParser.urlencoded({extended:true}))
 const prisma = new PrismaClient();
 
 // LOGIN
@@ -17,6 +17,8 @@ const prisma = new PrismaClient();
 app.post("/user", async (req, res) => {
   var Bemail = req.body.email;
   var Bsenha = req.body.senha;
+  console.log(Bemail);
+  
   const user = await prisma.usuario.findFirst({
     select: {
       id: true,
@@ -32,21 +34,18 @@ app.post("/user", async (req, res) => {
     },
   });
   if (!(!user)) {
-    let BDemail: string = user.email;
-    let BDsenha: string = user.senha;
     let BDadm: boolean = user.Padm;
-    if ((Bemail == BDemail) && (Bsenha == BDsenha)) {
       if (BDadm == true) {
         return res.send("ADM");
       }
-
-      return res.send("OK");
+      console.log("ate aqui otimo");
+      console.log(user);
+      
+      return res.json(user)
+    }else{
+      return res.send("<span class='subalert'>nome ou senha incorretos</span>");
     }
-      return res.send({"resposta":"NO"}).status(400);
-  }else{
-    return res.send({"resposta":"NO"}).status(404)
-  }
-});
+  });
 
 //listagem de usuarios
 

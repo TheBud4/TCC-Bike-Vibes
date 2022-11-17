@@ -174,7 +174,41 @@ justify-content: center;
   align-self: center;
   font-size: 19px;
 }
-/* --FOOTER-- */
+
+  /* --FOOTER-- */
+  .footer {
+    background: var(--cor2);
+    padding: 1rem;
+    height: 10rem;
+    display: flex;
+    margin-top: 5rem;
+  }
+  .footer-logo{
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  left: 10%;
+  }
+  .footer-logo p{
+    color: var(--fundo);
+    display: flex;
+    flex-direction: column;
+  }
+  .footer .social a {
+    transition: 0.3s;
+    display: inline-block;
+    position: relative;
+    right: 5%;
+    left: auto ;
+    top: 3rem;
+  }
+  .social .icon{
+    margin-left: 1rem;
+  }
+  .footer .social a:hover {
+    transform: translateY(-8px);
+  }
 /* --RESPONSIVIDADE-- */
 
 /* Para celular: */

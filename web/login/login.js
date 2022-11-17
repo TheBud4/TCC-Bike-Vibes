@@ -1,39 +1,43 @@
- function logar(){
-    var email = document.getElementById('email').value
-    var senha = document.getElementById('senha').value
-    var data = {
-        email,
-        senha
-    }
- fetch('http://localhost:3333/user',{
+
+async function logar(){
+var email = document.getElementById('email').value
+var senha = document.getElementById('senha').value
+var data = {
+  email,
+  senha
+}
+  const req = await fetch('http://localhost:3333/user',{
     method:'POST',
-    mode: 'cors',
+    redirect: 'follow',
     headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/json;charset=utf-8'
       },
     body:JSON.stringify(data)
-  })
-  .then( async (response)=>{
-   var status =  response.json()
-   await console.log(status);
-   await  console.log(response.json);
-  if(status == 'OK'){
+  }).then( async (res)=>{
+   var data =  res.json()
+    console.log(data);
+  /*if(response == 'OK'){
      var usuario = res.json()
-     await  localStorage.setItem("Usuario",usuario)
+     localStorage.setItem("Usuario",usuario)
         location.href = '../Logado/Usuario/Main/main-page.html'
     }
-    if (status == 'ADM') {
+    if (response == 'ADM') {
       location.href = '../Logado/Admin/Main/main.html'
     }
-    if(status == 'NO'){
+    if(response == 'NO'){
         function warning(){ 
             const divAlert = document.getElementById('alert')
-                const message = `<span class='alert'>nome ou senha incorretos</span>`
+                const message = ``
                 divAlert.innerHTML =  message 
                 }
           warning()
-    }
+    }*/
+  }).then((data) => {
+    console.log('Success:', data);
   })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 }
 
 
