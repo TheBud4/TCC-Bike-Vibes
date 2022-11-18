@@ -15,7 +15,7 @@
     <!-- --FONTS-- -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;Reem+Kufi+Fun:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;"
       rel="stylesheet"
     />
     <title>Bike Vibes -Bikes</title>
@@ -32,7 +32,10 @@
           <span>Bike<span>Vibes</span></span>
         </a>
       </div>
-      <div class="navbar">
+      <div class="navbar">      
+        <div class="products-navbar">
+          <a href="../Main/main-page.html">Home</a>
+        </div>
         <div class="perfil" id="perfil-navbar">
           <button onclick="navbarOnClick()" class="button-navbar">
             <img src="../../../assets/icons/person.svg" alt="Perfil" />
@@ -51,7 +54,7 @@
       <div class="compras">
         <span class="titulo">Suas Reservas</span>
         <table id="listTable" class="listTable"></table>
-       <span class="textototal">Total:  R$  <div class="total" id="total"></div></span>
+       <span class="textototal1">Total:  R$  <div class="total" id="total"></div></span>
         <div class="comprar">
           <button onclick="modalAluguel()">Efetuar aluguel</button>
         </div>
@@ -59,6 +62,7 @@
       <!-- --MODAL-- -->
       <div class="modal-comprar" id="modal">
         <div class="modal-comprar-container">
+          <button class="botao-fechar" onclick="modalAbre()"><img src="../../../assets/icons/x.svg" alt=""></button>
           <h1>Obrigado pela preferencia!</h1>
           <div class="textototal" id="total-final">
           </div>
@@ -75,8 +79,40 @@
       </div>
     </main>
     <!-- --FOOTER-- -->
-    <footer></footer>
-    <script src="../../../components/navbarComponent.js"></script>
+    <div class="footer">
+      <div class="logo footer-logo">
+        <a href="#">
+          <img src="../../../assets/images/bike-vibe-B.svg" alt="logo" />
+          <span> Bike<span>Vibes</span></span></a
+        >
+        <p>©2022 BikeVibes.</p>
+        <p>Todos os direitos reservados.</p>
+      </div>
+      <div class="social">
+        <a href="https://www.instagram.com/bikevibes13/" target="_blank">
+          <i class="icon"
+            ><img
+              src="../../../assets/icons/instagram1.svg"
+              alt="contate-nos no instagram"
+          /></i>
+        </a>
+        <a
+          href="https://api.whatsapp.com/send?phone=+5545998272317&text=Olá! Tenho uma dúvida"
+          target="_blank"
+        >
+          <i class="icon"
+            ><img
+              src="../../../assets/icons/whatsapp.svg"
+              alt="contate-nos no whatsapp" /></i
+        ></a>
+        <a href="https://facebook.com" target="_blank"
+          ><i class="icon">
+            <img src="../../../assets/icons/facebook2.svg" alt="" /> </i
+        ></a>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../components/navbarComponent.js"></script>
     <script src="../Products/products.js"></script>
   </body>
 </html>

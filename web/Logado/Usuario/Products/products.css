@@ -95,7 +95,7 @@ body {
   display: none;
 }
 .perfil-navbar-opened {
-  margin-top: 75%;
+  margin-top: 60%;
   width: 12rem;
   height: 12rem;
   background: var(--fundo);
@@ -218,7 +218,7 @@ main {
   flex-direction: column;
   background-color: var(--fundo);
   width: 25rem;
-  height: 25rem;
+  height: 27rem;
   top: 25%;
   left: 70%;
   align-items: center;
@@ -232,12 +232,75 @@ main {
 }
 
 .listTable {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow-x: auto;
   max-height: 15rem;
   height: 15rem;
+  width: 23rem;
+  background: rgba(226, 226, 226, 0.24);
+  font: 500 15px "Roboto", sans-serif;
+  margin-top: 1rem;
 }
+.listTable thead{
+  width: 20rem;
+}
+.listTable thead tr{
+  width: 20rem;
+  display: flex;
+}
+.listTable thead td{
+  margin-left: 5.5rem;
 
+}
+.listTable tbody{
+  width: 21rem;
+}
+.listTable tbody tr{
+width: 21rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.listTable tbody tr td{
+  margin-left: 1rem;
+  margin-top: 1rem;
+
+}
+.btn-delete{
+margin-left: 1rem;
+color: white;
+background-color: red;
+border: none;
+border-radius: 10%;
+width: 3rem;
+height: 1.5rem;
+cursor: pointer;
+}
+.textototal1{
+  margin-top: 1rem;
+  display: flex;
+  font: 600 20px "Roboto", sans-serif;
+}
+.comprar{
+  margin-top: 1.5rem;
+}
+.comprar button{
+  width: 10rem;
+  height: 2rem;
+  align-self: center;
+  background: var(--cor2);
+  border-radius: 0.2rem;
+  color: var(--fundo);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.comprar button:hover {
+  box-shadow: 1px 1px 8px 1px var(--cor2);
+  transition: all 0.3s ease;
+}
 /* --MODAL COMPRAR-- */
 .modal-comprar {
   display: none;
@@ -316,7 +379,57 @@ main {
   font: 500 18px "Roboto", sans-serif;
   margin-top: 1.5rem;
 }
-/* --FOOTER-- */
+.botao-fechar{
+  position: absolute;
+  margin-left: 31.5rem;
+  width: 3rem;
+  height: 3rem;
+  color: var(--fundo);
+  background-color: red;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+}
+.botao-fechar:hover {
+  box-shadow: 1px 1px 8px 1px red;
+  transition: all 0.3s ease;
+}
+  /* --FOOTER-- */
+  .footer {
+    background: var(--cor2);
+    padding: 1rem;
+    height: 10rem;
+    display: flex;
+    margin-top: 5rem;
+  }
+  .footer-logo{
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  left: 10%;
+  }
+  .footer-logo p{
+    color: var(--fundo);
+    display: flex;
+    flex-direction: column;
+  }
+  .footer .social a {
+    transition: 0.3s;
+    display: inline-block;
+    position: relative;
+    right: 5%;
+    left: auto ;
+    top: 3rem;
+  }
+  .social .icon{
+    margin-left: 1rem;
+  }
+  .footer .social a:hover {
+    transform: translateY(-8px);
+  }
 
 /* --RESPONSIVIDADE-- */
 

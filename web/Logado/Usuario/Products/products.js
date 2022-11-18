@@ -107,6 +107,7 @@ function modalAluguel(){
   }
   getValorTotal();
 }
+
 function confirmaAluguel(){
   modalAbre();
 
