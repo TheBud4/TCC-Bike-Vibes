@@ -10,7 +10,7 @@ body{
   position: absolute;
   background-color: var(--fundo);
   width: 35rem;
-  height: 45rem;
+  height: 40rem;
   border-radius: 1.5rem;
   box-shadow: 1px -2px 20px -2px rgba(0,0,0,0.37);
   border: 2px solid rgba(0, 0, 0, 0.133);
@@ -29,7 +29,38 @@ align-items: center;
 justify-content: center;
 border-radius: 100%;
 }
+.informacoes{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 34rem;
+  height: 25rem;
+}
+.items{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.informacoes h2{
+  align-self: center;
+  font: 600 23px "Roboto", sans-serif;
+  margin-bottom: 1rem;
+}
+.informacoes .title{
+  font: 500 15px "Roboto", sans-serif;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid black;
+}
+.informacoes .field{
 
+font: 500 13px "Roboto", sans-serif;
+
+}
+a{
+font: 500 15px "Roboto", sans-serif;
+
+}
 /* --RESPONSIVIDADE-- */
 
 
@@ -54,5 +85,6 @@ border-radius: 100%;
 /* Para pc: */
 
 @media only screen and (max-width: 1200px){
+
 
 }

@@ -402,7 +402,8 @@ cursor: pointer;
     padding: 1rem;
     height: 10rem;
     display: flex;
-    margin-top: 5rem;
+    margin-top: 100%;
+    margin-bottom: 0%;
   }
   .footer-logo{
   height: auto;

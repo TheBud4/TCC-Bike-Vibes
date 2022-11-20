@@ -1,33 +1,36 @@
 
 
-const divProdutos = document.querySelector('.informacoes')
-async function getProduto(){
-  const res = await fetch('http://localhost:3333/user')
-  const usuario = await res.json()
-  mostraUsuario(usuario)
- }
-  function mostraUsuario(usuario){
-    usuario.forEach(product => {
-      const produtoHTML = `
-      <div class="produto">
-      <div class="modelos"><span class = modelo>${product.modelo}</span></div>
-      <div class="corpo">
-        <img class="prodIMG" src="${product.prodIMG}" alt="">
-        <div class="descricao">
-        <span class = nome>${product.nome}</span>
-        <span class = desc>${product.descricao}</span>
-        </div>
-        <div class="botaocomprar">
-          <button class="alugar" onclick="alugarBike()">Reservar</button>
-        </div>
-        </div>
-    </div>
+const DIVinfo = document.querySelector('.informacoes')
+
+async function getUsuario(){
+ var data = JSON.parse(localStorage.getItem("Usuario"))
+  
+  console.log(data);
+    if (!(!data)) {
+      var HTMLuser = `
+      <h2>Perfil de usuario</h2>
+      <div class="items">
+      <span class = "title">Nome</span>
+      <span class = "field">${data.nome}</span>
+      <span class = "title">E-mail</span>
+      <span class = "field">${data.email}</span>
+      <span class = "title">CPF</span>
+      <span class = "field">${data.CPF}</span>
+      <span class = "title">Telefone</span>
+      <span class = "field">${data.telefone}</span>
+      <span></span>
+      </div>
       `
-      divProdutos.innerHTML = divProdutos.innerHTML + produtoHTML
-    });
+      DIVinfo.innerHTML = DIVinfo.innerHTML + HTMLuser
+
+    } else {
+      function warning() {
+        const divAlert = document.querySelector(".alert");
+        const message = `<span class='alert'>Erro na obtenção do usuario</span>`;
+        divAlert.innerHTML = message;
+      }
+      warning();
+    }
   }
 
-  function alugarBike(){
-    
-  }
- getProduto()
+ getUsuario()

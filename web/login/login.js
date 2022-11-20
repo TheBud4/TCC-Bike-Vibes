@@ -14,30 +14,23 @@ var data = {
       },
     body:JSON.stringify(data)
   }).then( async (res)=>{
-   var data =  res.json()
-    console.log(data);
-  /*if(response == 'OK'){
-     var usuario = res.json()
-     localStorage.setItem("Usuario",usuario)
+   var data =  await res.json()
+  if(!(!data)){
+     localStorage.setItem("Usuario",JSON.stringify(data))
         location.href = '../Logado/Usuario/Main/main-page.html'
     }
-    if (response == 'ADM') {
+    else if (data.Padm == 'ADM') {
       location.href = '../Logado/Admin/Main/main.html'
     }
-    if(response == 'NO'){
+    else if(!data){
         function warning(){ 
             const divAlert = document.getElementById('alert')
                 const message = ``
                 divAlert.innerHTML =  message 
                 }
           warning()
-    }*/
-  }).then((data) => {
-    console.log('Success:', data);
+    }
   })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
 }
-
+logar();
 

@@ -60,7 +60,6 @@ function getTotal(list) {
 
 //criando a tabela
 function setList(list) {
-  console.log(list);
   var table =
     "<thead><tr><td>Nome</td><td>Preco</td></tr></thead><tbody>";
   for (var key in list) {

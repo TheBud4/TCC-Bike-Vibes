@@ -23,8 +23,4 @@ async function getProduto(){
       divProdutos.innerHTML = divProdutos.innerHTML + produtoHTML
     });
   }
-
-  function alugarBike(){
-    
-  }
  getProduto()
