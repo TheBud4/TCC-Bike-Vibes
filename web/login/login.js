@@ -16,19 +16,14 @@ var data = {
   }).then( async (res)=>{
    var data =  await res.json()
   if(!(!data)){
-     localStorage.setItem("Usuario",JSON.stringify(data))
-        location.href = '../Logado/Usuario/Main/main-page.html'
-    }
-    else if (data.Padm == 'ADM') {
+    if (data.Padm === true) {
       location.href = '../Logado/Admin/Main/main.html'
+    }else{
+     localStorage.setItem("Usuario",JSON.stringify(data))
+        location.href = '../Logado/Usuario/Main/main-page.html'}
     }
     else if(!data){
-        function warning(){ 
-            const divAlert = document.getElementById('alert')
-                const message = ``
-                divAlert.innerHTML =  message 
-                }
-          warning()
+      alert("Nome ou senha incorretos")
     }
   })
 }

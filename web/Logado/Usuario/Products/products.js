@@ -12,7 +12,6 @@ function mostraProdutos(products) {
     var descricao = product.descricao;
     var preco = product.preco;
     var id = product.id
-    localStorage.setItem("idProduto",id)
     const produtoHTML = `
       <div class="produto">
       <div class="modelos"><span class = "modelo">${modelo}</span></div>
@@ -28,7 +27,7 @@ function mostraProdutos(products) {
         <button class="alugar"
          type="button"
           id="adicionar"
-            onclick="AddCarrinho('${nome}','${preco}')"> Reservar </button>
+            onclick="AddCarrinho('${nome}','${preco}',${id})"> Reservar </button>
         </div>
         </div>
     </div>
@@ -40,8 +39,8 @@ var list = [];
 
 //Adicionando ao carrinho
 
-function AddCarrinho(nome, preco) {
-  list.unshift({ nome, preco });
+function AddCarrinho(nome, preco,id) {
+  list.unshift({ nome, preco,id });
   setList(list);
 }
 
@@ -59,7 +58,11 @@ function getTotal(list) {
 }
 
 //criando a tabela
+
+
+
 function setList(list) {
+  var prodId = []
   var table =
     "<thead><tr><td>Nome</td><td>Preco</td></tr></thead><tbody>";
   for (var key in list) {
@@ -69,9 +72,14 @@ function setList(list) {
       "</td><td>" +
       list[key].preco +
     '<button class="btn-delete" onclick="deleteData(' + key +');">Deletar</button></td></tr>';
+    
+    prodId += {'id':list[key].id};
+    // console.log(list[key].id);
+    // console.log(prodId);
   }
+  console.log(prodId);
   table += "</tbody>";
-
+  localStorage.setItem("idProduto",prodId)
   document.getElementById("listTable").innerHTML = table;
   getTotal(list);
 }
@@ -109,7 +117,39 @@ function modalAluguel(){
 
 function confirmaAluguel(){
   modalAbre();
-
+  var user = JSON.parse(localStorage.getItem("Usuario"))
+  var id = JSON.parse(localStorage.getItem("idProduto"))
+  var data = {
+    user,
+    id
+  }
+  console.log(data);
+  /*var fetchRes = fetch("http://localhost:3333/user/alugar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(data),
+  });
+  fetchRes.then(async (res) => {
+    var status = await res.text();
+    console.log(status);
+    if (status == "OK") {
+      function warning() {
+        const divAlert = document.querySelector(".alert");
+        const message = `<span class='alert'>Produto criado com sucesso</span>`;
+        divAlert.innerHTML = message;
+      }
+      warning();
+    } else {
+      function warning() {
+        const divAlert = document.querySelector(".alert");
+        const message = `<span class='alert'>Produto não criado</span>`;
+        divAlert.innerHTML = message;
+      }
+      warning();
+    }
+  });*/
 }
 setList();
 getProduto();

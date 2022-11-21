@@ -17,7 +17,6 @@ const prisma = new PrismaClient();
 app.post("/user", async (req, res) => {
   var Bemail = req.body.email;
   var Bsenha = req.body.senha;
-  console.log(Bemail);
   
   const user = await prisma.usuario.findFirst({
     select: {
@@ -36,14 +35,12 @@ app.post("/user", async (req, res) => {
   if (!(!user)) {
     let BDadm: boolean = user.Padm;
       if (BDadm == true) {
-        return res.send("ADM");
+        return res.json({
+          "Padm": true,
+        });
       }
-      console.log("ate aqui otimo");
-      console.log(user);
-      
       return res.json(user)
     }else{
-      return res.send("<span class='subalert'>nome ou senha incorretos</span>");
     }
   });
 
@@ -155,6 +152,19 @@ app.post("/user/bikes", async (req, res) => {
 //historico de compras
 
 app.post("/user/historico", async (req, res) => {});
+
+//criar alugel
+
+app.post("/user/alugar", async (req, res) => {
+
+});
+
+//criar nota
+
+app.post("/user/nota", async (req, res) => {
+
+
+});
 
 //PRODUTOS
 
