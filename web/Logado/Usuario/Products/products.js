@@ -36,12 +36,14 @@ function mostraProdutos(products) {
   });
 }
 var list = [];
-
+var ids = []
 //Adicionando ao carrinho
 
 function AddCarrinho(nome, preco,id) {
   list.unshift({ nome, preco,id });
   setList(list);
+
+  localStorage.setItem("ProdutoLista",JSON.stringify(list))
 }
 
 //somando total
@@ -62,7 +64,6 @@ function getTotal(list) {
 
 
 function setList(list) {
-  var prodId = []
   var table =
     "<thead><tr><td>Nome</td><td>Preco</td></tr></thead><tbody>";
   for (var key in list) {
@@ -72,14 +73,9 @@ function setList(list) {
       "</td><td>" +
       list[key].preco +
     '<button class="btn-delete" onclick="deleteData(' + key +');">Deletar</button></td></tr>';
-    
-    prodId += {'id':list[key].id};
-    // console.log(list[key].id);
-    // console.log(prodId);
   }
-  console.log(prodId);
+
   table += "</tbody>";
-  localStorage.setItem("idProduto",prodId)
   document.getElementById("listTable").innerHTML = table;
   getTotal(list);
 }
@@ -115,41 +111,29 @@ function modalAluguel(){
   getValorTotal();
 }
 
-function confirmaAluguel(){
+async function confirmaAluguel(){
   modalAbre();
   var user = JSON.parse(localStorage.getItem("Usuario"))
-  var id = JSON.parse(localStorage.getItem("idProduto"))
-  var data = {
-    user,
-    id
-  }
-  console.log(data);
-  /*var fetchRes = fetch("http://localhost:3333/user/alugar", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json;charset=utf-8",
-    },
-    body: JSON.stringify(data),
-  });
-  fetchRes.then(async (res) => {
-    var status = await res.text();
-    console.log(status);
-    if (status == "OK") {
-      function warning() {
-        const divAlert = document.querySelector(".alert");
-        const message = `<span class='alert'>Produto criado com sucesso</span>`;
-        divAlert.innerHTML = message;
-      }
-      warning();
-    } else {
-      function warning() {
-        const divAlert = document.querySelector(".alert");
-        const message = `<span class='alert'>Produto não criado</span>`;
-        divAlert.innerHTML = message;
-      }
-      warning();
-    }
-  });*/
+  var product = JSON.parse(localStorage.getItem("ProdutoLista"))
+  var totalFinal = localStorage.getItem("totalFinal");
+  var produto = product.map(function(item){
+    return item.nome;
+ });
+  var nota = new jsPDF({
+    unit: 'cm',
+    format: 'letter'
+  })
+nota.text('Obrigado pela preferencia!', 5, 5)
+nota.text(user.nome,2,8)
+nota.text(user.email,2,9)
+ nota.text(user.telefone,2,10)
+ nota.text(user.CPF,2,11)
+nota.text("Produtos Comprados: ",2,12)
+
+nota.text(produto,2,13)
+
+nota.text("Total: " +  totalFinal,3,18)
+nota.save('nota-fiscal.pdf')
 }
 setList();
 getProduto();

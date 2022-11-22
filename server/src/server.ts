@@ -26,6 +26,7 @@ app.post("/user", async (req, res) => {
       email: true,
       senha: true,
       Padm: true,
+      telefone:true,
     },
     where: {
       email: Bemail,
@@ -82,16 +83,15 @@ app.post(
       return res.status(400).json({ errors: errors.array() });
     } else {
       const body = req.body;
-      const x = Math.floor(Math.random() * 1000000000 + 1);
 
-      const usuario = await prisma.usuario.create({
+       await prisma.usuario.create({
         data: {
           nome: body.nome,
           senha: body.senha,
           email: body.email,
-          CPF: x.toString(),
+          CPF: body.cpf,
           Padm: false,
-          telefone: "",
+          telefone:body.telefone,
         },
       });
       return res.status(201).send("OK");
@@ -132,38 +132,6 @@ app.patch("/user/adm/remove", async (req, res) => {
     },
  })
    return res.send('OK')
-});
-//carrinho
-
-app.post("/user/bikes", async (req, res) => {
-  const historico = await prisma.produtos.findMany({
-    select: {
-      id: true,
-      nome: true,
-      descricao: true,
-      prodIMG: true,
-      modelo: true,
-      criacao: true,
-    },
-  });
-  return res.json(historico);
-});
-
-//historico de compras
-
-app.post("/user/historico", async (req, res) => {});
-
-//criar alugel
-
-app.post("/user/alugar", async (req, res) => {
-
-});
-
-//criar nota
-
-app.post("/user/nota", async (req, res) => {
-
-
 });
 
 //PRODUTOS

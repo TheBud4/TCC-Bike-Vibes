@@ -2,12 +2,17 @@ async function Cadastro(){
     var nome = document.getElementById('nome').value
     var email = document.getElementById('email').value
     var senha = document.getElementById('senha').value
+    var telefone = document.getElementById('telefone').value
+    var cpf = document.getElementById('cpf').value
+
     var confirmacaosenha = document.getElementById('confirmacaosenha').value
     var data = {
         nome,
         email,
         senha,
-        confirmacaosenha
+        confirmacaosenha,
+        telefone,
+        cpf
     }
   var fetchRes = fetch('http://localhost:3333/user/register',{
     method:'POST',
