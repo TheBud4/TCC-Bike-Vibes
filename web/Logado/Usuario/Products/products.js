@@ -124,15 +124,15 @@ async function confirmaAluguel(){
     format: 'letter'
   })
 nota.text('Obrigado pela preferencia!', 5, 5)
-nota.text(user.nome,2,8)
-nota.text(user.email,2,9)
- nota.text(user.telefone,2,10)
- nota.text(user.CPF,2,11)
-nota.text("Produtos Comprados: ",2,12)
+nota.text("Nome: " + user.nome,2,8)
+nota.text("Email:" + user.email,2,9)
+ nota.text("Telefone: " + user.telefone,2,10)
+ nota.text("Cpf: " +user.CPF,2,11)
+nota.text("Produtos Locados: ",2,12)
 
 nota.text(produto,2,13)
 
-nota.text("Total: " +  totalFinal,3,18)
+nota.text("Total: " +  totalFinal,15,18)
 nota.save('nota-fiscal.pdf')
 }
 setList();
