@@ -37,6 +37,7 @@ CREATE TABLE "nota" (
     "vencimento" DATETIME NOT NULL,
     "devolucao" DATETIME NOT NULL,
     "preco" TEXT NOT NULL,
+    "quantidade" INTEGER NOT NULL,
     "IDUsuario" INTEGER NOT NULL,
     "IDAluguel" INTEGER NOT NULL,
     "IDProduto" INTEGER NOT NULL,

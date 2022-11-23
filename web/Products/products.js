@@ -14,7 +14,7 @@ async function getProduto(){
         <div class="descricao">
         <span class = "modelo">${product.modelo}</span>
         <span class = "nome">${product.nome}</span>
-        <span class = "desc">${product.preco}</span>
+        <span class = "desc">R$ ${product.preco}</span>
         </div>
         </div>
     </div>

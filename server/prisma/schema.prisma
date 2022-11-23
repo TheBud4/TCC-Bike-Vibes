@@ -48,6 +48,7 @@ model nota {
   vencimento DateTime
   devolucao  DateTime
   preco      String
+  quantidade Int
   IDUsuario  Int
   IDAluguel  Int
   IDProduto  Int

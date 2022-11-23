@@ -157,6 +157,9 @@ display: flex;
 align-items: center;
 justify-content: center;
 }
+.corpo .desc{
+  align-self: center;
+}
 .descricao {
   display: flex;
   flex-direction: column;

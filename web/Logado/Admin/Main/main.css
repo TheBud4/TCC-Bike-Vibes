@@ -240,7 +240,7 @@ main {
   transition: all 0.3s ease;
 }
 
-.editar-excluir {
+.DIVexcluir {
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -261,9 +261,9 @@ main {
   border: none;
   cursor: pointer;
 }
-.editar-excluir img {
-  width: 20px;
-  height: 20px;
+.DIVexcluir img {
+  width: 23px;
+  height: 23px;
   margin-left: 1rem;
 }
 .excluir {
@@ -281,10 +281,7 @@ main {
   border: none;
   cursor: pointer;
 }
-.editar:hover {
-  box-shadow: 1px 1px 8px 1px #2cb67d;
-  transition: all 0.3s ease;
-}
+
 .excluir:hover {
   box-shadow: 1px 1px 8px 1px red;
   transition: all 0.3s ease;
