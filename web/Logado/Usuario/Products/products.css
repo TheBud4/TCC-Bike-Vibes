@@ -310,6 +310,10 @@ cursor: pointer;
   margin-left: 1rem;
   font: 600 1rem "Roboto", sans-serif;
 }
+.e{
+  margin-top: 1rem;
+  font: 500 1rem "Roboto", sans-serif;
+}
 .dias {
   -webkit-appearance: none;
   background: #d3d3d3;
