@@ -35,8 +35,21 @@ function mostraProdutos(products) {
     divProdutos.innerHTML = divProdutos.innerHTML + produtoHTML;
   });
 }
+//display de dias
+
+
+function range(){
+  let resultado = document.getElementById("resultado");
+  let valor = document.getElementById("dias").value;
+  resultado.innerHTML = valor
+ }
+ 
+ range()
+ 
+ document.addEventListener("change", range);
+  
+
 var list = [];
-var ids = []
 //Adicionando ao carrinho
 
 function AddCarrinho(nome, preco,id) {
@@ -50,11 +63,14 @@ function AddCarrinho(nome, preco,id) {
 function getTotal(list) {
   var total = 0;
    var totalFinal = 0
+   var totalAcrescimo = 0
   for (var key in list) {
    total = total + parseFloat(list[key].preco);
    totalFinal = total.toFixed(2)
   }
-  localStorage.setItem("totalFinal", totalFinal);
+  let dias = document.getElementById("dias").value;
+  totalAcrescimo = totalFinal * dias
+  localStorage.setItem("totalFinal", totalAcrescimo);
    document.getElementById("total").innerHTML = totalFinal;
    
 }
@@ -103,8 +119,9 @@ function modalAluguel(){
   modalAbre();
   function getValorTotal(){
     var totalFinal = localStorage.getItem("totalFinal");
+    
     let total = `
-    <span>Total da compra: ${totalFinal}</span>
+    <span>Total da compra: R$ ${totalFinal}</span>
     `
    document.getElementById("total-final").innerHTML = total;
   }
@@ -119,6 +136,7 @@ async function confirmaAluguel(){
   var produto = product.map(function(item){
     return item.nome;
  });
+ var diasDeLocacao = document.getElementById("dias").value
   var nota = new jsPDF({
     unit: 'cm',
     format: 'letter'
@@ -128,11 +146,13 @@ nota.text("Nome: " + user.nome,2,8)
 nota.text("Email:" + user.email,2,9)
  nota.text("Telefone: " + user.telefone,2,10)
  nota.text("Cpf: " +user.CPF,2,11)
-nota.text("Produtos Locados: ",2,12)
+nota.text("Dias de locação: " + diasDeLocacao,2,12)
 
-nota.text(produto,2,13)
+nota.text("Produtos Locados: ",2,13)
 
-nota.text("Total: " +  totalFinal,15,18)
+nota.text(produto,2,14)
+
+nota.text("Total: R$" + totalFinal,15,19)
 nota.save('nota-fiscal.pdf')
 }
 setList();

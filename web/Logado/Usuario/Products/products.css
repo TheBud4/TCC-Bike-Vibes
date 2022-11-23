@@ -218,7 +218,7 @@ main {
   flex-direction: column;
   background-color: var(--fundo);
   width: 25rem;
-  height: 27rem;
+  height: 30rem;
   top: 25%;
   left: 70%;
   align-items: center;
@@ -301,6 +301,44 @@ cursor: pointer;
   box-shadow: 1px 1px 8px 1px var(--cor2);
   transition: all 0.3s ease;
 }
+/* --dias-- */
+.escolherdias{
+  display: flex;
+  margin-top: 1rem;
+}
+.escolherdias span{
+  margin-left: 1rem;
+  font: 600 1rem "Roboto", sans-serif;
+}
+.dias {
+  -webkit-appearance: none;
+  background: #d3d3d3;
+  outline: none;
+  width: 10rem;
+  height: 1rem;
+  border-radius: 9px;   
+}
+
+.dias::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+
+  background: #2796ee;
+  cursor: pointer;
+}
+
+.dias::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+
+  background: #2796ee;
+  cursor: pointer;
+}
+
 /* --MODAL COMPRAR-- */
 .modal-comprar {
   display: none;
@@ -402,7 +440,7 @@ cursor: pointer;
     padding: 1rem;
     height: 10rem;
     display: flex;
-    margin-top: 100%;
+    margin-top: 30%;
     margin-bottom: 0%;
   }
   .footer-logo{
