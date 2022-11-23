@@ -36,21 +36,17 @@ function mostraProdutos(products) {
   });
 }
 //display de dias
-
-
 function range(){
   let resultado = document.getElementById("resultado");
   let valor = document.getElementById("dias").value;
   resultado.innerHTML = valor
  }
- 
  range()
- 
  document.addEventListener("change", range);
-  
+
+//Adicionando ao carrinho 
 
 var list = [];
-//Adicionando ao carrinho
 
 function AddCarrinho(nome, preco,id) {
   list.unshift({ nome, preco,id });
@@ -78,7 +74,6 @@ function getTotal(list) {
 //criando a tabela
 
 
-
 function setList(list) {
   var table =
     "<thead><tr><td>Nome</td><td>Preco</td></tr></thead><tbody>";
@@ -95,6 +90,7 @@ function setList(list) {
   document.getElementById("listTable").innerHTML = table;
   getTotal(list);
 }
+
 //Deletando Item
 function deleteData(id){
 		if(id === list.length - 1){
@@ -110,11 +106,13 @@ function deleteData(id){
 }
 
 // Efetuar Aluguel
+
 function modalAbre(){
   const navbar = document.getElementById("modal");
   navbar.classList.toggle("modal-comprar");
   navbar.classList.toggle("modal-comprar-opened");
   }
+  
 function modalAluguel(){
   modalAbre();
   function getValorTotal(){

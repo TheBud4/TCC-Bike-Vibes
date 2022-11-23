@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import express from "express";
 import { body, validationResult } from "express-validator";
 import cors from "cors";
-import bodyParser from "express"
+import bodyParser from "express";
 
 const app = express();
 
@@ -37,10 +37,10 @@ app.post("/user", async (req, res) => {
     let BDadm: boolean = user.Padm;
       if (BDadm == true) {
         return res.json({
-          "Padm": true,
+          Padm: true,
         });
       }
-      return res.json(user)
+      return res.json(user);
     }else{
     }
   });
@@ -59,7 +59,7 @@ app.get("/user/get", async (req, res) => {
       telefone: true,
     }
   });
-  return res.json(usuario).status(400);
+  return res.json(usuario);
 });
 
 //CADASTRO
@@ -167,7 +167,7 @@ app.get("/bikes", async (req, res) => {
   });
   return res.json(bikes);
 });
-app.patch("/bikes", (req, res) => {});
+
 app.delete("/bikes/delete", async (req, res) => {
   const body = req.body
    const Cid = parseInt(body.id, 10)
