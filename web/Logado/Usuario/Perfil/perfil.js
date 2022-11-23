@@ -4,8 +4,6 @@ const DIVinfo = document.querySelector('.informacoes')
 
 async function getUsuario(){
  var data = JSON.parse(localStorage.getItem("Usuario"))
-  
-  console.log(data);
     if (!(!data)) {
       var HTMLuser = `
       <h2>Perfil de usuario</h2>
